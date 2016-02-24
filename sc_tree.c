@@ -4,6 +4,8 @@
  * @author: Abhishek Chatterjee [achatterjee32]
  */
 #include <math.h>
+#include <stdlib.h>
+#include <stdio.h>
 
 #include "sc_tree.h"
 
@@ -12,12 +14,10 @@ tree_node_t **tree;
 static int sense;
 static int num_procs;
 static int tree_size;
-static tree_node_t *root;
+
 
 /* Prototypes for helper functions */
 static int initialize_tree();
-static int initialize_tree_recursive();
-
 
 /*
 int combining_barrier() {
@@ -85,7 +85,8 @@ int initialize_tree() {
 
 int join_tree(process_t *process) {
     int id = process->id;
-    tree[tree_size-num_procs+id];
+    tree[tree_size-num_procs+id]->process = process;
+    printf("Process %d joined tree.\n", id);
     return 0;
 }
     
@@ -93,7 +94,9 @@ int main(int argc, char *argv[]) {
     int id;
     int ierr;
     double wtime;
+    int tree_initialized = 0;
 
+    printf("argc = %d\n", argc);
     // Initiaize MPI
     ierr = MPI_Init(&argc, &argv);
 
@@ -108,15 +111,20 @@ int main(int argc, char *argv[]) {
     process->id = id;
     process->locksense = 0;
 
+    
     if(id == 0) {
         process_array = (process_t **) malloc(sizeof(process_t *)*num_procs);
         tree_size = exp2(log2(num_procs)+ 1)-1; // Size of a complete binary tree is 2^(h+1)-1; size of level h is 2^h.
         tree = (tree_node_t **) malloc(sizeof(tree_node_t **)*tree_size);
         initialize_tree();
+        tree_initialized = 1;
+        printf("Process %d initialized tree.\n", id);
     }
 
     process_array[id] = process;
+    printf("Process %d checking in.\n", id);
     join_tree(process);
+    
     return 0;
 }
 
