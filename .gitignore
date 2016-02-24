@@ -2,3 +2,5 @@
 *.a
 *.out
 *.gch
+*.dSYM
+sc_tree
