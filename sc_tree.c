@@ -3,22 +3,28 @@
  * following the algorithm in the Mellor-Crummey and Scott paper.
  * @author: Abhishek Chatterjee [achatterjee32]
  */
+#include <math.h>
 
 #include "sc_tree.h"
 
 process_t **process_array;
+tree_node_t **tree;
 static int sense;
+static int num_procs;
+static int tree_size;
 static tree_node_t *root;
 
 /* Prototypes for helper functions */
 static int initialize_tree();
 static int initialize_tree_recursive();
 
+
+/*
 int combining_barrier() {
     combining_barrier_aux(mynode);
     sense = !sense;
 }
-/*
+
 int combining_barrier_aux(node_t *node) {
     // Spin on our locksense variable.
     while(node->locksense != sense) {
@@ -50,19 +56,42 @@ static int join_tree(node_t *node, node_t *curr_root) {
 
 
 int initialize_tree() {
-    root = malloc(sizeof(tree_node_s));
-    root->parent = NULL;
-    return initialize_tree_recursive(root);
+    int i;
+    for(i=0; i<tree_size; i++) {
+        tree[i] = (tree_node_t *) malloc(sizeof(tree_node_t *));
+        tree[i]->k = 0;
+        tree[i]->process = NULL;
+
+        if(i==0) {
+            tree[i]->parent = NULL;
+        } else {
+            tree[i]->parent = tree[(i-1)/2];
+        }
+
+        if(2*i+1 < tree_size) {
+            tree[i]->left = tree[2*i+1];
+            tree[i]->k++;
+        } else {
+            tree[i]->left = NULL;
+        }
+
+        if(2*i+2 < tree_size) {
+            tree[i]->right = tree[2*i+2];
+            tree[i]->k++;
+        }
+    }
+    return 0;
 }
 
-int initialize_tree_recursive(tree_node_s *curr) {
-
+int join_tree(process_t *process) {
+    int id = process->id;
+    tree[tree_size-num_procs+id];
+    return 0;
 }
-
+    
 int main(int argc, char *argv[]) {
     int id;
     int ierr;
-    int num_procs;
     double wtime;
 
     // Initiaize MPI
@@ -75,31 +104,19 @@ int main(int argc, char *argv[]) {
     ierr = MPI_Comm_rank(MPI_COMM_WORLD, &id);
 
     // Initialize the process struct for this process.
-    proces_t *process = (process_t *) malloc(sizeof(process_t));
+    process_t *process = (process_t *) malloc(sizeof(process_t));
     process->id = id;
     process->locksense = 0;
 
     if(id == 0) {
         process_array = (process_t **) malloc(sizeof(process_t *)*num_procs);
+        tree_size = exp2(log2(num_procs)+ 1)-1; // Size of a complete binary tree is 2^(h+1)-1; size of level h is 2^h.
+        tree = (tree_node_t **) malloc(sizeof(tree_node_t **)*tree_size);
         initialize_tree();
     }
 
     process_array[id] = process;
-
-    /*
-    if(id == 0)
-        nodes_array = (node_t **) malloc(sizeof(node_t *)*num_procs);
-    */
-
-
-    nodes_array[id] = node;
-
-    if(!root) {
-        root = node;
-    } else {
-        join_tree(node, root);
-    }
-
-    return;
+    join_tree(process);
+    return 0;
 }
 

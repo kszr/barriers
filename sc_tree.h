@@ -18,11 +18,11 @@ typedef struct tree_node_s {
     struct tree_node_s *parent;
     struct tree_node_s *left;
     struct tree_node_s *right;
-    process_t *curr; // The process occupying this tree node.
+    process_t *process; // The process occupying this tree node.
 } tree_node_t;
 
 int combining_barrier();
-int combining_barrier_aux(node_t *node);
-static int join_tree(node_t *node, node_t *curr_root);
+int combining_barrier_aux(tree_node_t *node);
+int join_tree(process_t *process);
 
 #endif
