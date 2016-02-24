@@ -3,7 +3,7 @@
 
 #include <stdlib.h>
 #include <stdio.h>
-#include <mpi.h>
+#include "mpi.h"
 
 //#include "stack.h"
 typedef struct process_s {
