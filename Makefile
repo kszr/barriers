@@ -10,4 +10,4 @@ sc_tree.o: sc_tree.c
 	$(CC) $(CFLAGS) sc_tree.c
 
 clean:
-	rm *o sc_tree
+	$(RM) -f *o sc_tree
