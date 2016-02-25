@@ -1,8 +1,17 @@
 /**
- * An implementation of a software combining tree barrier with wakeup,
- * following the algorithm in the Mellor-Crummey and Scott paper.
+ * An implementation of a tournament barrier, following the algorithm 
+ * in the Mellor-Crummey and Scott paper.
+ * 
+ * Implementation notes: The "tree" is maintained by a processor's notion of
+ * what position in the tree it is in. A processor has a position element that 
+ * represents its index in a hypothetical binary tree implemented as an array.
+ * That is to say, there isn't an actual data structure representing the tree.
+ * 
+ * This implementation assumes that the number of processors is a power of two.
+ *
  * @author: Abhishek Chatterjee [achatterjee32]
  */
+
 #include <math.h>
 #include <stdlib.h>
 #include <stdio.h>
@@ -14,81 +23,89 @@ tree_node_t **tree;
 static int sense;
 static int num_procs;
 static int tree_size;
-
+static int round = 0;
 
 /* Prototypes for helper functions */
-static int initialize_tree();
+int get_sender(int mypos, int round);
+int get_recipient(int mypos, int round);
+// static int initialize_tree();
 
-/*
-int combining_barrier() {
-    combining_barrier_aux(mynode);
+
+int combining_barrier(process_t *process) {
+    combining_barrier_aux(process);
     sense = !sense;
+    return 0;
 }
 
-int combining_barrier_aux(node_t *node) {
-    // Spin on our locksense variable.
+int combining_barrier_aux(process_t *process) {
+    int buf;
     while(node->locksense != sense) {
-        // Needs to be atomic fetch_and_decrement.
-        if(count == 1) {
-            if(parent)
-                combining_barrier_aux(parent);
-            count = k;  // Prepare for next barrier
-            node->locksense = !node->locksense; // Release waiting processors.
-        }
-    }
-}
-
-static int join_tree(node_t *node, node_t *curr_root) {
-    if(!curr_root->left || !curr_root->right) {
-        if(!curr_root->left) {
-            curr_root->left = node;
-            node->parent = curr_root;
-        } else {
-            curr_root->right = node;
-            node->parent = curr_root;
-        }
-        curr_root->k++;
-        return 1;
-    }
-
-    return join_tree(node, curr_root->left) || join_tree(node, curr_root->right);
-} */
-
-
-int initialize_tree() {
-    int i;
-    for(i=0; i<tree_size; i++) {
-        tree[i] = (tree_node_t *) malloc(sizeof(tree_node_t *));
-        tree[i]->k = 0;
-        tree[i]->process = NULL;
-
-        if(i==0) {
-            tree[i]->parent = NULL;
-        } else {
-            tree[i]->parent = tree[(i-1)/2];
-        }
-
-        if(2*i+1 < tree_size) {
-            tree[i]->left = tree[2*i+1];
-            tree[i]->k++;
-        } else {
-            tree[i]->left = NULL;
-        }
-
-        if(2*i+2 < tree_size) {
-            tree[i]->right = tree[2*i+2];
-            tree[i]->k++;
-        }
+        buf = (int) exp2(process->id);
+        MPI_Send(&buf, 1, MPI_INT, process->id, MPI_COMM_WORL)
+        MPI_Bcast(&buf, 1, MPI_INT, process->id, MPI_COMM_WORLD)
     }
     return 0;
 }
 
-int join_tree(process_t *process) {
-    int id = process->id;
-    tree[tree_size-num_procs+id]->process = process;
-    printf("Process %d joined tree.\n", id);
+int join_tournament(process_t *process) {
+    join_tournament_aux(process);
+    sense = !sense;
+    round = 0;
     return 0;
 }
+
+int join_tournament_aux(process_t *process) {
+    int buf=-1
+    int locksense = !sense;
+    while(locksense != sense) {
+        if(process->id % 2 == 1 & process->round == round) {
+            MPI_Send()
+        }
+    }
+    return 0;  
+}
+
+// int combining_barrier_aux(node_t *node) {
+//     // Spin on our locksense variable.
+//     while(node->locksense != sense) {
+//         // Needs to be atomic fetch_and_decrement.
+//         if(count == 1) {
+//             if(parent)
+//                 combining_barrier_aux(parent);
+//             count = k;  // Prepare for next barrier
+//             node->locksense = !node->locksense; // Release waiting processors.
+//         }
+//     }
+// }
+
+// int initialize_tree() {
+//     int i;
+//     for(i=0; i<tree_size; i++) {
+//         tree[i] = (tree_node_t *) malloc(sizeof(tree_node_t *));
+//         tree[i]->k = 0;
+//         tree[i]->process = NULL;
+
+//         if(i==0) {
+//             tree[i]->parent = NULL;
+//         } else {
+//             tree[i]->parent = tree[(i-1)/2];
+//         }
+
+//         if(2*i+1 < tree_size) {
+//             tree[i]->left = tree[2*i+1];
+//             tree[i]->k++;
+//         } else {
+//             tree[i]->left = NULL;
+//         }
+
+//         if(2*i+2 < tree_size) {
+//             tree[i]->right = tree[2*i+2];
+//             tree[i]->k++;
+//         }
+//     }
+//     return 0;
+// }
+
     
 int main(int argc, char *argv[]) {
     int id;
@@ -97,6 +114,7 @@ int main(int argc, char *argv[]) {
     int tree_initialized = 0;
 
     printf("argc = %d\n", argc);
+
     // Initiaize MPI
     ierr = MPI_Init(&argc, &argv);
 
@@ -106,24 +124,16 @@ int main(int argc, char *argv[]) {
     // Get individual process id.
     ierr = MPI_Comm_rank(MPI_COMM_WORLD, &id);
 
+    tree_size = exp2(log2(num_procs)+ 1)-1; // Size of a complete binary tree is 2^(h+1)-1; size of level h is 2^h.
+
     // Initialize the process struct for this process.
-    process_t *process = (process_t *) malloc(sizeof(process_t));
-    process->id = id;
-    process->locksense = 0;
+    process_t process;
+    process.id = id;
+    process.round = 0;
+    process.position = tree_size-num_procs+id;
+    printf("Initialized process with id %d\n", d);
 
-    
-    if(id == 0) {
-        process_array = (process_t **) malloc(sizeof(process_t *)*num_procs);
-        tree_size = exp2(log2(num_procs)+ 1)-1; // Size of a complete binary tree is 2^(h+1)-1; size of level h is 2^h.
-        tree = (tree_node_t **) malloc(sizeof(tree_node_t **)*tree_size);
-        initialize_tree();
-        tree_initialized = 1;
-        printf("Process %d initialized tree.\n", id);
-    }
-
-    process_array[id] = process;
-    printf("Process %d checking in.\n", id);
-    join_tree(process);
+    join_tournament(&process);
     
     return 0;
 }
