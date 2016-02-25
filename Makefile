@@ -10,4 +10,4 @@ tourney_tree.o: tourney_tree.c
 	$(CC) $(CFLAGS) tourney_tree.c
 
 clean:
-	$(RM) -f *o tourney_tree *.dSYM
+	$(RM) -f *o tourney_tree

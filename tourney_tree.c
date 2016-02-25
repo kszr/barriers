@@ -2,11 +2,6 @@
  * An implementation of a tournament barrier, following the algorithm 
  * in the Mellor-Crummey and Scott paper.
  * 
- * Implementation notes: The "tree" is maintained by a processor's notion of
- * what position in the tree it is in. A processor has a position element that 
- * represents its index in a hypothetical binary tree implemented as an array.
- * That is to say, there isn't an actual data structure representing the tree.
- * 
  * This implementation assumes that the number of processors is a power of two.
  *
  * @author: Abhishek Chatterjee [achatterjee32]
@@ -23,7 +18,9 @@ static int num_procs;
 static int tree_size;
 
 /* Prototypes for helper functions */
-static int get_loser(int mypos);
+static int is_sender(processor_t *processor);
+static int get_source(processor_t *processor);
+static int get_dest(processor_t *processor);
 static int join_tournament_aux(processor_t *processor);
 
 int join_tournament(processor_t *processor) {
@@ -34,39 +31,69 @@ int join_tournament(processor_t *processor) {
 
 static int join_tournament_aux(processor_t *processor) {
     int buf;
+    MPI_Status mpi_result;
     while(processor->locksense != sense) {
         buf = -1;
-        if(processor->position % 2) {
+        if(processor->round == (int) log2(num_procs)) {
+            wakeup(processor, &buf);
+            break;
+        }
+        if(is_sender(processor)) {
             if(!processor->has_sent) {
-                buf = processor->position;
-                MPI_Bcast(&buf, 1, MPI_INT, processor->id, MPI_COMM_WORLD);
+                buf = CONCEDE_SIGNAL;
+                printf("Sending to %d\n", get_dest(processor));
+                MPI_Send(&buf, 1, MPI_INT, get_dest(processor), 1, MPI_COMM_WORLD);
                 processor->has_sent = 1;
             }
         } else {
-            if(buf == get_loser(processor->position)) {
-                processor->round += 1;
+            printf("Receiving from %d\n", get_source(processor));
+            MPI_Recv(&buf, 1, MPI_INT, get_source(processor), 1, MPI_COMM_WORLD, &mpi_result);
+            if(buf == CONCEDE_SIGNAL) {
+                processor->round++;
                 processor->has_sent = 0;
-                processor->position = (processor->position-1)/2;
             }
         }
-        if(processor->round == 0)
-            wakeup();
+        MPI_Recv(&buf, 1, MPI_INT, get_dest(processor), 1, MPI_COMM_WORLD, &mpi_result);
+        if(buf == WAKEUP_SIGNAL) {
+            wakeup(processor, &buf);
+            break;
+        }
     }
+    MPI_Finalize();
     return 0;  
 }
 
-int wakeup() {
-    printf("Wakeup\n");
-    sense = !sense;
+int wakeup(processor_t *processor, int *buf) {
+    while(processor->round != 0) {
+        processor->round--;
+        *buf = WAKEUP_SIGNAL;
+        printf("Waking up %d; now my round is %d\n", get_source(processor), processor->round);
+        MPI_Send(buf, 1, MPI_INT, get_source(processor), 1, MPI_COMM_WORLD);
+    }
     return 0;
 }
 
 /**
- * Returns the statically assigned loser for a processor at position mypos
- * in the hypothetical tourney tree.
+ * Returns 1 if the processor needs to send a concession signal in this round.
  */
-static int get_loser(int mypos) {
-    return mypos+1;
+static int is_sender(processor_t *processor) {
+    return processor->id == (int) exp2(processor->round) % (int) exp2(processor->round+1);
+}
+
+/**
+ * Returns the id of the processor this processor is expecting to hear from
+ * in this round.
+ */
+static int get_source(processor_t *processor) {
+return processor->id + (int) exp2(processor->round);
+}
+
+/**
+ * Returns the id of the processor this processor needs to communicate with
+ * in this round.
+ */
+static int get_dest(processor_t *processor) {
+    return processor->id - (int) exp2(processor->round);
 }
     
 int main(int argc, char *argv[]) {
@@ -92,7 +119,6 @@ int main(int argc, char *argv[]) {
     processor_t processor;
     processor.id = id;
     processor.round = 0;
-    processor.position = tree_size-num_procs+id;
     processor.has_sent = 0;
     processor.locksense = 0;
     printf("Initialized processor with id %d\n", id);
