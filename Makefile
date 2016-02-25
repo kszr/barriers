@@ -1,13 +1,13 @@
 CC=mpicc
 CFLAGS=-c -Wall
 
-all: sc_tree
+all: tourney_tree
 
-sc_tree: sc_tree.o
-	$(CC) sc_tree.o -o sc_tree
+tourney_tree: tourney_tree.o
+	$(CC) tourney_tree.o -o tourney_tree
 
-sc_tree.o: sc_tree.c
-	$(CC) $(CFLAGS) sc_tree.c
+tourney_tree.o: tourney_tree.c
+	$(CC) $(CFLAGS) tourney_tree.c
 
 clean:
-	$(RM) -f *o sc_tree
+	$(RM) -f *o tourney_tree *.dSYM
