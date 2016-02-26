@@ -61,6 +61,7 @@ static int join_tournament_aux(processor_t *processor) {
             if(buf == WAKEUP_SIGNAL) {
                 wakeup(processor, &buf);
                 processor->locksense = !processor->locksense;
+                processor->has_sent = 0;           
             }
         } else if(is_receiver(processor)) {
             // Receives a concession signal from the statically determined loser in a round, and advances to the next round.
@@ -124,6 +125,7 @@ int main(int argc, char *argv[]) {
     int id;
     int ierr;
     double wtime;
+    int num_iters = 1;
 
     // Initiaize MPI
     ierr = MPI_Init(&argc, &argv);
@@ -141,13 +143,20 @@ int main(int argc, char *argv[]) {
     processor.id = id;
     processor.round = 0;
     processor.has_sent = 0;
-    processor.has_received = 0;
     processor.locksense = 0;
 
     if(id == 0)
         wtime = MPI_Wtime();
-    
-    join_tournament(&processor);
+   
+    if(argc == 2) {
+        num_iters = (int) argv[1];
+        if(num_iters<0)
+            num_iters = 0;
+    }
+    printf("Num iters = %d\n", num_iters);
+    int i;
+    for(i=0; i<num_iters; i++)
+        join_tournament(&processor);
     
     if(id == 0) {
         wtime = MPI_Wtime() - wtime;
