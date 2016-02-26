@@ -69,7 +69,6 @@ static int join_tournament_aux(processor_t *processor) {
             }
         }
     }
-    MPI_Finalize();
     return 0;  
 }
 
@@ -134,9 +133,18 @@ int main(int argc, char *argv[]) {
     processor.has_sent = 0;
     processor.has_received = 0;
     processor.locksense = 0;
-   
+
+    if(id == 0)
+        wtime = MPI_Wtime();
+    
     join_tournament(&processor);
     
+    if(id == 0) {
+        wtime = MPI_Wtime() - wtime;
+        printf("Barrier took %f s to run with %d processors.\n", wtime, num_procs);
+    }
+
+    MPI_Finalize();
     return 0;
 }
 
