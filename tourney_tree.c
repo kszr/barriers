@@ -48,7 +48,7 @@ static int join_tournament_aux(processor_t *processor) {
             MPI_Recv(&buf, 1, MPI_INT, get_dest(processor), 1, MPI_COMM_WORLD, &mpi_result);
             if(buf == WAKEUP_SIGNAL) {
                 wakeup(processor, &buf);
-                break;
+                processor->locksense = !processor->locksense;
             }
         } else {
             MPI_Recv(&buf, 1, MPI_INT, get_source(processor), 1, MPI_COMM_WORLD, &mpi_result);
