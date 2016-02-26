@@ -141,7 +141,7 @@ int main(int argc, char *argv[]) {
     
     if(id == 0) {
         wtime = MPI_Wtime() - wtime;
-        printf("Barrier took %f s to run with %d processors.\n", wtime, num_procs);
+        printf("Barrier took %fs to run with %d processors.\n", wtime, num_procs);
     }
 
     MPI_Finalize();
