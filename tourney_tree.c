@@ -41,22 +41,21 @@ static int join_tournament_aux(processor_t *processor) {
         if(is_sender(processor)) {
             if(!processor->has_sent) {
                 buf = CONCEDE_SIGNAL;
-                printf("Sending to %d\n", get_dest(processor));
+                printf("Processor %d concedes to processor %d\n", processor->id, get_dest(processor));
                 MPI_Send(&buf, 1, MPI_INT, get_dest(processor), 1, MPI_COMM_WORLD);
                 processor->has_sent = 1;
             }
+            MPI_Recv(&buf, 1, MPI_INT, get_dest(processor), 1, MPI_COMM_WORLD, &mpi_result);
+            if(buf == WAKEUP_SIGNAL) {
+                wakeup(processor, &buf);
+                break;
+            }
         } else {
-            printf("Receiving from %d\n", get_source(processor));
             MPI_Recv(&buf, 1, MPI_INT, get_source(processor), 1, MPI_COMM_WORLD, &mpi_result);
             if(buf == CONCEDE_SIGNAL) {
                 processor->round++;
                 processor->has_sent = 0;
             }
-        }
-        MPI_Recv(&buf, 1, MPI_INT, get_dest(processor), 1, MPI_COMM_WORLD, &mpi_result);
-        if(buf == WAKEUP_SIGNAL) {
-            wakeup(processor, &buf);
-            break;
         }
     }
     MPI_Finalize();
@@ -67,7 +66,7 @@ int wakeup(processor_t *processor, int *buf) {
     while(processor->round != 0) {
         processor->round--;
         *buf = WAKEUP_SIGNAL;
-        printf("Waking up %d; now my round is %d\n", get_source(processor), processor->round);
+        printf("Processor %d sends wakeup signal to processor %d\n", processor->id, get_source(processor));
         MPI_Send(buf, 1, MPI_INT, get_source(processor), 1, MPI_COMM_WORLD);
     }
     return 0;
@@ -77,7 +76,8 @@ int wakeup(processor_t *processor, int *buf) {
  * Returns 1 if the processor needs to send a concession signal in this round.
  */
 static int is_sender(processor_t *processor) {
-    return processor->id == (int) exp2(processor->round) % (int) exp2(processor->round+1);
+    int base = (int) exp2(processor->round+1);
+    return processor->id % base == (int) exp2(processor->round) % base;
 }
 
 /**
@@ -101,8 +101,6 @@ int main(int argc, char *argv[]) {
     int ierr;
     double wtime;
 
-    printf("argc = %d\n", argc);
-
     // Initiaize MPI
     ierr = MPI_Init(&argc, &argv);
 
@@ -113,16 +111,15 @@ int main(int argc, char *argv[]) {
     ierr = MPI_Comm_rank(MPI_COMM_WORLD, &id);
 
     tree_size = exp2(log2(num_procs)+ 1)-1; // Size of a complete binary tree is 2^(h+1)-1; size of level h is 2^h.
-    printf("Tree size is %d\n", tree_size);
-
+    
     // Initialize the processor struct for this processor.
     processor_t processor;
     processor.id = id;
     processor.round = 0;
     processor.has_sent = 0;
+    processor.has_received = 0;
     processor.locksense = 0;
-    printf("Initialized processor with id %d\n", id);
-
+   
     join_tournament(&processor);
     
     return 0;

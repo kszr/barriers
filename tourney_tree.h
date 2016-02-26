@@ -13,6 +13,7 @@ typedef struct processor_s {
     int id; // Processor id
     int round;  // The round this processor is currently in.
     int has_sent; // 1 if the processor has sent a message already; 0 otherwise.
+    int has_received;
     int locksense; // The variable this processor needs to spin on.
 } processor_t;
 
