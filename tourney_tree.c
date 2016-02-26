@@ -23,21 +23,30 @@ static int get_source(processor_t *processor);
 static int get_dest(processor_t *processor);
 static int join_tournament_aux(processor_t *processor);
 
+/**
+ * Enters the processor into the tournament. Flips the sense flag at the end
+ * in preparation for the next barrier.
+ */
 int join_tournament(processor_t *processor) {
     join_tournament_aux(processor);
     sense = !sense;
     return 0;
 }
 
+/**
+ * A helper function that represents a single instance of the tournament barrier.
+ */
 static int join_tournament_aux(processor_t *processor) {
     int buf;
     MPI_Status mpi_result;
     while(processor->locksense != sense) {
         buf = -1;
+        // The processor that reaches the root initiates wakeup.
         if(processor->round == (int) log2(num_procs)) {
             wakeup(processor, &buf);
             break;
         }
+        // Statically determined loser in a round needs to concede to a statically determined winner.
         if(is_sender(processor)) {
             if(!processor->has_sent) {
                 buf = CONCEDE_SIGNAL;
@@ -45,12 +54,14 @@ static int join_tournament_aux(processor_t *processor) {
                 MPI_Send(&buf, 1, MPI_INT, get_dest(processor), 1, MPI_COMM_WORLD);
                 processor->has_sent = 1;
             }
+            // Receives a wakeup signal from the processor that beat it.
             MPI_Recv(&buf, 1, MPI_INT, get_dest(processor), 1, MPI_COMM_WORLD, &mpi_result);
             if(buf == WAKEUP_SIGNAL) {
                 wakeup(processor, &buf);
                 processor->locksense = !processor->locksense;
             }
         } else {
+            // Receives a concession signal from the statically determined loser in a round, and advances to the next round.
             MPI_Recv(&buf, 1, MPI_INT, get_source(processor), 1, MPI_COMM_WORLD, &mpi_result);
             if(buf == CONCEDE_SIGNAL) {
                 processor->round++;
@@ -62,6 +73,9 @@ static int join_tournament_aux(processor_t *processor) {
     return 0;  
 }
 
+/**
+ * processor iteratively sends a wakeup signal to every processor that conceded to it during the tournament.
+ */
 int wakeup(processor_t *processor, int *buf) {
     while(processor->round != 0) {
         processor->round--;
@@ -73,7 +87,8 @@ int wakeup(processor_t *processor, int *buf) {
 }
 
 /**
- * Returns 1 if the processor needs to send a concession signal in this round.
+ * Returns 1 if the processor needs to send a concession signal in this round. Number obtained from
+ * Hensgen, Finkel, and Manber's barrier as given in the MCS paper.
  */
 static int is_sender(processor_t *processor) {
     int base = (int) exp2(processor->round+1);
@@ -82,7 +97,7 @@ static int is_sender(processor_t *processor) {
 
 /**
  * Returns the id of the processor this processor is expecting to hear from
- * in this round.
+ * in this round. Number from H, F, and M's barrier.
  */
 static int get_source(processor_t *processor) {
 return processor->id + (int) exp2(processor->round);
