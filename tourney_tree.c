@@ -19,6 +19,7 @@ static int tree_size;
 
 /* Prototypes for helper functions */
 static int is_sender(processor_t *processor);
+static int is_receiver(processor_t *processor);
 static int get_source(processor_t *processor);
 static int get_dest(processor_t *processor);
 static int join_tournament_aux(processor_t *processor);
@@ -44,7 +45,8 @@ static int join_tournament_aux(processor_t *processor) {
         // The processor that reaches the root initiates wakeup.
         if(processor->round == (int) log2(num_procs)) {
             wakeup(processor, &buf);
-            break;
+            processor->round = -1; // Ensures that the processor does not enter the send and or receive blocks on the way out.
+            processor->locksense = !processor->locksense;
         }
         // Statically determined loser in a round needs to concede to a statically determined winner.
         if(is_sender(processor)) {
@@ -60,7 +62,7 @@ static int join_tournament_aux(processor_t *processor) {
                 wakeup(processor, &buf);
                 processor->locksense = !processor->locksense;
             }
-        } else {
+        } else if(is_receiver(processor)) {
             // Receives a concession signal from the statically determined loser in a round, and advances to the next round.
             MPI_Recv(&buf, 1, MPI_INT, get_source(processor), 1, MPI_COMM_WORLD, &mpi_result);
             if(buf == CONCEDE_SIGNAL) {
@@ -69,6 +71,7 @@ static int join_tournament_aux(processor_t *processor) {
             }
         }
     }
+    processor->round = 0;
     return 0;  
 }
 
@@ -91,7 +94,14 @@ int wakeup(processor_t *processor, int *buf) {
  */
 static int is_sender(processor_t *processor) {
     int base = (int) exp2(processor->round+1);
-    return processor->id % base == (int) exp2(processor->round) % base;
+    return processor->round < 0 ? 0 : processor->id % base == (int) exp2(processor->round) % base;
+}
+
+/**
+ * Returns 1 if the processor expects to receive a concession signal in this round.
+ */
+static int is_receiver(processor_t *processor) {
+    return processor->round < 0 ? 0 : !is_sender(processor);
 }
 
 /**
