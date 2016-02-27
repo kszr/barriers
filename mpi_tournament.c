@@ -6,7 +6,6 @@
  *
  * @author: Abhishek Chatterjee [achatterjee32]
  */
-
 #include <math.h>
 #include <stdlib.h>
 #include <stdio.h>
@@ -16,7 +15,6 @@
 
 static int sense = 1;
 static int num_procs;
-static int tree_size;
 
 /* Prototypes for helper functions */
 static int is_sender(processor_t *processor);
@@ -136,8 +134,6 @@ int main(int argc, char *argv[]) {
 
     // Get individual processor id.
     ierr = MPI_Comm_rank(MPI_COMM_WORLD, &id);
-
-    tree_size = exp2(log2(num_procs)+ 1)-1; // Size of a complete binary tree is 2^(h+1)-1; size of level h is 2^h.
     
     // Initialize the processor struct for this processor.
     processor_t processor;
@@ -152,11 +148,11 @@ int main(int argc, char *argv[]) {
         if(strcmp(argv[argc-2], "-i") == 0) {
             num_iters = atoi(argv[argc-1]);
         } else {
-            fprintf(stderr, "Usage: ./tourney_tree -i [num_iters]");
+            fprintf(stderr, "Usage: mpirun -np [num_procs] mpi_tournament -i [num_iters]");
             return 1;
         }
         if(num_iters < 0) {
-            fprintf(stderr, "Usage: ./tourney_tree -i [num_iters]");
+            fprintf(stderr, "Usage: mpirun -np [num_procs] mpi_tournament -i [num_iters]");
             return 1;
         }
     }

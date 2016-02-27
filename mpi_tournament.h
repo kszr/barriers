@@ -1,3 +1,6 @@
+/**
+ * @author: Abhishek Chatterjee [achatterjee32]
+ */
 #ifndef MPI_TOURNAMENT_H
 #define MPI_TOURNAMENT_H
 

@@ -3,4 +3,5 @@
 *.out
 *.gch
 *.dSYM
-tourney_tree
+mpi_tournament
+mpi_mcs

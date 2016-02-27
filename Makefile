@@ -13,7 +13,7 @@ mpi_mcs: mpi_mcs.o
 	$(CC) mpi_mcs.o -o mpi_mcs
 
 mpi_mcs.o: mpi_mcs.c
-	$(CC) $(CFLAGS) mpi_tournament.c
+	$(CC) $(CFLAGS) mpi_mcs.c
 
 clean:
 	$(RM) -f *o mpi_tournament mpi_mcs
