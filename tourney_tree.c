@@ -10,6 +10,7 @@
 #include <math.h>
 #include <stdlib.h>
 #include <stdio.h>
+#include <string.h>
 
 #include "tourney_tree.h"
 
@@ -147,17 +148,25 @@ int main(int argc, char *argv[]) {
 
     if(id == 0)
         wtime = MPI_Wtime();
-   
-    if(argc == 2) {
-        num_iters = (int) argv[1];
-        if(num_iters<0)
-            num_iters = 0;
+
+    if(argc >=2) {
+        if(strcmp(argv[argc-2], "-i") == 0) {
+            num_iters = atoi(argv[argc-1]);
+        } else {
+            fprintf(stderr, "Usage: ./tourney_tree -i [num_iters]");
+            return 1;      
+        }
+        if(num_iters < 0) {
+            fprintf(stderr, "Usage: ./tourney_tree -i [num_iters]");
+            return 1;
+        }
     }
-    printf("Num iters = %d\n", num_iters);
-    int i;
-    for(i=0; i<num_iters; i++)
-        join_tournament(&processor);
     
+    printf("argc = %d; Num iters = %d\n", argc, num_iters);
+    int i;
+    for(i=0; i<num_iters; i++)   
+        join_tournament(&processor); 
+
     if(id == 0) {
         wtime = MPI_Wtime() - wtime;
         printf("Barrier took %fs to run with %d processors.\n", wtime, num_procs);
