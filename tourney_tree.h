@@ -5,7 +5,7 @@
 #include <stdio.h>
 #include "mpi.h"
 
-// This signals tell the recipient of a message what to do.
+// Signals
 static const int CONCEDE_SIGNAL = 1;
 static const int WAKEUP_SIGNAL = 2;
 
@@ -13,7 +13,6 @@ typedef struct processor_s {
     int id; // Processor id
     int round;  // The round this processor is currently in.
     int has_sent; // 1 if the processor has sent a message already; 0 otherwise.
-    int has_received;
     int locksense; // The variable this processor needs to spin on.
 } processor_t;
 
