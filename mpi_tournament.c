@@ -12,7 +12,7 @@
 #include <stdio.h>
 #include <string.h>
 
-#include "tourney_tree.h"
+#include "mpi_tournament.h"
 
 static int sense = 1;
 static int num_procs;
@@ -53,7 +53,7 @@ static int join_tournament_aux(processor_t *processor) {
         if(is_sender(processor)) {
             if(!processor->has_sent) {
                 buf = CONCEDE_SIGNAL;
-                printf("Processor %d concedes to processor %d\n", processor->id, get_dest(processor));
+                // printf("Processor %d concedes to processor %d\n", processor->id, get_dest(processor));
                 MPI_Send(&buf, 1, MPI_INT, get_dest(processor), 1, MPI_COMM_WORLD);
                 processor->has_sent = 1;
             }
@@ -84,7 +84,7 @@ int wakeup(processor_t *processor, int *buf) {
     while(processor->round != 0) {
         processor->round--;
         *buf = WAKEUP_SIGNAL;
-        printf("Processor %d sends wakeup signal to processor %d\n", processor->id, get_source(processor));
+        // printf("Processor %d sends wakeup signal to processor %d\n", processor->id, get_source(processor));
         MPI_Send(buf, 1, MPI_INT, get_source(processor), 1, MPI_COMM_WORLD);
     }
     return 0;
@@ -146,31 +146,28 @@ int main(int argc, char *argv[]) {
     processor.has_sent = 0;
     processor.locksense = 0;
 
-    if(id == 0)
-        wtime = MPI_Wtime();
+    wtime = MPI_Wtime();
 
     if(argc >=2) {
         if(strcmp(argv[argc-2], "-i") == 0) {
             num_iters = atoi(argv[argc-1]);
         } else {
             fprintf(stderr, "Usage: ./tourney_tree -i [num_iters]");
-            return 1;      
+            return 1;
         }
         if(num_iters < 0) {
             fprintf(stderr, "Usage: ./tourney_tree -i [num_iters]");
             return 1;
         }
     }
-    
-    printf("argc = %d; Num iters = %d\n", argc, num_iters);
+
     int i;
     for(i=0; i<num_iters; i++)   
         join_tournament(&processor); 
 
-    if(id == 0) {
-        wtime = MPI_Wtime() - wtime;
-        printf("Barrier took %fs to run with %d processors.\n", wtime, num_procs);
-    }
+
+    wtime = MPI_Wtime() - wtime;
+    printf("Processor %d took %fs to run with %d processors and %d iterations\n", id, wtime, num_procs, num_iters);
 
     MPI_Finalize();
     return 0;

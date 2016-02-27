@@ -1,5 +1,5 @@
-#ifndef TOURNEY_TREE_H
-#define TOURNEY_TREE_H
+#ifndef MPI_TOURNAMENT_H
+#define MPI_TOURNAMENT_H
 
 #include <stdlib.h>
 #include <stdio.h>

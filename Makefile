@@ -1,13 +1,19 @@
 CC=mpicc
 CFLAGS=-c -Wall
 
-all: tourney_tree
+all: mpi_tournament mpi_mcs
 
-tourney_tree: tourney_tree.o
-	$(CC) tourney_tree.o -o tourney_tree
+mpi_tournament: mpi_tournament.o
+	$(CC) mpi_tournament.o -o mpi_tournament
 
-tourney_tree.o: tourney_tree.c
-	$(CC) $(CFLAGS) tourney_tree.c
+mpi_tournament.o: mpi_tournament.c
+	$(CC) $(CFLAGS) mpi_tournament.c
+
+mpi_mcs: mpi_mcs.o
+	$(CC) mpi_mcs.o -o mpi_mcs
+
+mpi_mcs.o: mpi_mcs.c
+	$(CC) $(CFLAGS) mpi_tournament.c
 
 clean:
-	$(RM) -f *o tourney_tree
+	$(RM) -f *o mpi_tournament mpi_mcs
