@@ -1,0 +1,43 @@
+Adding user achatterjee32 to group authjobs
+Script began: Wed Mar 2 13:38:42 EST 2016
+Node: jinx6
+Current directory: /nethome/achatterjee32/project2/barriers
+
+=== Running MPI Tournament Barrier ===
+*** Running mpi_tournament with 2 processors and 100 iterations ***
+Processor 0 took 0.000474s to run with 2 processors and 100 iterations
+Processor 1 took 0.000480s to run with 2 processors and 100 iterations
+*** Running mpi_tournament with 4 processors and 100 iterations ***
+Processor 0 took 0.004167s to run with 4 processors and 100 iterations
+Processor 1 took 0.004321s to run with 4 processors and 100 iterations
+Processor 2 took 0.000905s to run with 4 processors and 100 iterations
+Processor 3 took 0.004644s to run with 4 processors and 100 iterations
+*** Running mpi_tournament with 8 processors and 100 iterations ***
+Processor 0 took 0.001550s to run with 8 processors and 100 iterations
+Processor 1 took 0.002474s to run with 8 processors and 100 iterations
+Processor 2 took 0.002828s to run with 8 processors and 100 iterations
+Processor 3 took 0.002213s to run with 8 processors and 100 iterations
+Processor 4 took 0.001231s to run with 8 processors and 100 iterations
+Processor 5 took 0.002792s to run with 8 processors and 100 iterations
+Processor 6 took 0.002235s to run with 8 processors and 100 iterations
+Processor 7 took 0.001407s to run with 8 processors and 100 iterations
+*** Running mpi_tournament with 16 processors and 100 iterations ***
+Processor 0 took 0.081306s to run with 16 processors and 100 iterations
+Processor 1 took 0.081093s to run with 16 processors and 100 iterations
+Processor 2 took 0.081502s to run with 16 processors and 100 iterations
+Processor 3 took 0.081053s to run with 16 processors and 100 iterations
+Processor 4 took 0.076040s to run with 16 processors and 100 iterations
+Processor 5 took 0.081858s to run with 16 processors and 100 iterations
+Processor 6 took 0.081859s to run with 16 processors and 100 iterations
+Processor 7 took 0.081173s to run with 16 processors and 100 iterations
+Processor 8 took 0.076066s to run with 16 processors and 100 iterations
+Processor 9 took 0.081346s to run with 16 processors and 100 iterations
+Processor 10 took 0.081873s to run with 16 processors and 100 iterations
+Processor 11 took 0.081410s to run with 16 processors and 100 iterations
+Processor 12 took 0.081299s to run with 16 processors and 100 iterations
+Processor 13 took 0.076157s to run with 16 processors and 100 iterations
+Processor 14 took 0.081154s to run with 16 processors and 100 iterations
+Processor 15 took 0.075627s to run with 16 processors and 100 iterations
+
+=== Done! ===
+Removing user achatterjee32 from group authjobs
