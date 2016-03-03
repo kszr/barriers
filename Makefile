@@ -1,4 +1,8 @@
-## For some r
+## When running on the cluster (or even, possibly, your own machine), make sure
+## that the variables MPICC and CC are set correctly. In particular, change 'gcc-5'
+## to 'gcc', if necessary, and use the commented out definition of MPICC when
+## running on the cluster.
+
 CC=gcc-5
 MPICC=mpicc
 
