@@ -19,6 +19,7 @@ echo ""
 echo "=== Running OMP Dissemination Barrier ==="
 for proc in 2 3 4 5 6 7 8 ; do
   echo "*** Running omp_dissemination with ${proc} threads and 100 iterations ***"
+  setenv OMP_NUM_THREADS ${proc}
   ./omp_dissemination ${proc} 100
 done
 
