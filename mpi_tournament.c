@@ -69,6 +69,8 @@ static int join_tournament_aux(processor_t *processor) {
                 processor->round++;
                 processor->has_sent = 0;
             }
+        } else {
+            processor->round++;
         }
     }
     processor->round = 0;
@@ -83,7 +85,8 @@ int wakeup(processor_t *processor, int *buf) {
         processor->round--;
         *buf = WAKEUP_SIGNAL;
         // printf("Processor %d sends wakeup signal to processor %d\n", processor->id, get_source(processor));
-        MPI_Send(buf, 1, MPI_INT, get_source(processor), 1, MPI_COMM_WORLD);
+        if(get_source(processor) < num_procs)
+            MPI_Send(buf, 1, MPI_INT, get_source(processor), 1, MPI_COMM_WORLD);
     }
     return 0;
 }
@@ -101,7 +104,7 @@ static int is_sender(processor_t *processor) {
  * Returns 1 if the processor expects to receive a concession signal in this round.
  */
 static int is_receiver(processor_t *processor) {
-    return processor->round < 0 ? 0 : !is_sender(processor);
+    return processor->round < 0 ? 0 : (!is_sender(processor)) && (get_source(processor) < num_procs);
 }
 
 /**
