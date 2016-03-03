@@ -2,7 +2,8 @@
  * An implementation of a tournament barrier, following the algorithm 
  * in the Mellor-Crummey and Scott paper.
  * 
- * This implementation assumes that the number of processors is a power of two.
+ * This implementation no longer requires that the number of processors be
+ * a power of two, as was originally the case.
  *
  * @author: Abhishek Chatterjee [achatterjee32]
  */
