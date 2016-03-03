@@ -4,6 +4,7 @@ MPICC=mpicc
 ## Use the following path for MPICC on the jinx cluster.
 # MPICC = /opt/openmpi-1.4.3-gcc44/bin/mpicc
 CFLAGS=-c -Wall
+OMP_FLAGS=-c -Wall -fopenmp
 
 all: mpi_tournament mpi_mcs omp_dissemination omp_sense
 
@@ -20,16 +21,16 @@ mpi_mcs.o: mpi_mcs.c
 	$(MPICC) $(CFLAGS) mpi_mcs.c
 
 omp_dissemination: omp_dissemination.o
-	$(CC) omp_dissemination.o -o omp_dissemination
+	$(CC) $(OMP_FLAGS) -lm omp_dissemination.o -o omp_dissemination
 
 omp_dissemination.o: omp_dissemination.c
-	$(CC) $(CFLAGS) omp_dissemination.c
+	$(CC) $(OMP_FLAGS) -lm omp_dissemination.c
 
 omp_sense: omp_sense.o
-	$(CC) omp_sense.o -o omp_sense
+	$(CC) $(OMP_FLAGS) omp_sense.o -o omp_sense
 
 omp_sense.o: omp_sense.c
-	$(CC) $(CFLAGS) omp_sense.c
+	$(CC) $(OMP_FLAGS) omp_sense.c
 
 clean:
 	$(RM) -f *o mpi_tournament mpi_mcs omp_dissemination omp_sense
