@@ -49,7 +49,7 @@ int main(int argc, char* argv[]) {
 		}
 	
 	/*Serial Code started*/
-	printf("Serial Section started.\n");
+	// printf("Serial Section started.\n");
 	flags allnodes[num_procs];
 	num_rounds = ceil (log(num_procs)/log(2));
 	omp_set_num_threads(num_procs);
@@ -68,7 +68,7 @@ int main(int argc, char* argv[]) {
 			initialize_barrier(allnodes);
 		
 		for(i=0; i<num_barriers; i++) {
-			printf("Thread %d in parallel section.\n", thread_id);
+			// printf("Thread %d in parallel section.\n", thread_id);
 			#pragma omp critical
 				for (j=0; j<num_procs; j++)
 					for (k=0; k<num_rounds; k++) {
@@ -80,11 +80,11 @@ int main(int argc, char* argv[]) {
 			T1 = omp_get_wtime();
 			dissemination_barrier(localflags, &parity, &sense);
 			T2 = omp_get_wtime();
-			printf("Thread %d out from parallel section.\n", thread_id);
+			// printf("Thread %d out from parallel section.\n", thread_id);
 		}
 		printf("Thread %d spent time= %f \n", thread_id, T2-T1);
 	}
 	
-	printf("Control back in to Serial Section.\n");
+	// printf("Control back in to Serial Section.\n");
 	return 0;	
 }

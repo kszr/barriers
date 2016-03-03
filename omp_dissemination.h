@@ -3,7 +3,7 @@
  */
 #include <stdlib.h>
 #include <stdio.h>
-#include <omp.h>
+// #include <omp.h>
 
 /*
 Implementing a dissemination barrier with only local spinning from MCS paper

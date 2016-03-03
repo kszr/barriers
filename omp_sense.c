@@ -34,7 +34,7 @@ int main(int argc, char* argv[]) {
 		}
 	
 	/*Serial Code started*/
-	printf("Serial Section started.\n");
+	// printf("Serial Section started.\n");
 	omp_set_num_threads(num_procs);
 	double T1, T2;
 	
@@ -46,15 +46,15 @@ int main(int argc, char* argv[]) {
 		long i;
 		
 		for(i=0; i<num_barriers; i++) {
-			printf("Thread %d in parallel section.\n", thread_id);
+			// printf("Thread %d in parallel section.\n", thread_id);
 			T1 = omp_get_wtime();
 			central_barrier(&locksense);
 			T2 = omp_get_wtime();
-			printf("Thread %d out from parallel section.\n", thread_id);
+			// printf("Thread %d out from parallel section.\n", thread_id);
 		}
 		printf("Thread %d spent time= %f \n", thread_id, T2-T1);
 	}
 	
-	printf("Control back in to Serial Section.\n");
+	// printf("Control back in to Serial Section.\n");
 	return 0;	
 }
