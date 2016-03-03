@@ -1,0 +1,97 @@
+Adding user achatterjee32 to group authjobs
+Script began: Thu Mar 3 11:41:08 EST 2016
+Node: jinx6
+Current directory: /nethome/achatterjee32/project2/barriers
+
+=== Running MPI MCS Barrier ===
+*** Running mpi_mcs with 2 processors and 100 iterations ***
+Processor 0 took 0.036501s to run with 2 processors and 100 iterations
+Processor 1 took 0.036654s to run with 2 processors and 100 iterations
+*** Running mpi_mcs with 3 processors and 100 iterations ***
+Processor 0 took 0.040260s to run with 3 processors and 100 iterations
+Processor 1 took 0.040209s to run with 3 processors and 100 iterations
+Processor 2 took 0.040145s to run with 3 processors and 100 iterations
+*** Running mpi_mcs with 4 processors and 100 iterations ***
+Processor 0 took 0.047227s to run with 4 processors and 100 iterations
+Processor 1 took 0.047188s to run with 4 processors and 100 iterations
+Processor 2 took 0.047077s to run with 4 processors and 100 iterations
+Processor 3 took 0.047012s to run with 4 processors and 100 iterations
+*** Running mpi_mcs with 5 processors and 100 iterations ***
+Processor 0 took 0.064739s to run with 5 processors and 100 iterations
+Processor 2 took 0.064501s to run with 5 processors and 100 iterations
+Processor 4 took 0.064513s to run with 5 processors and 100 iterations
+Processor 3 took 0.064491s to run with 5 processors and 100 iterations
+Processor 1 took 0.064618s to run with 5 processors and 100 iterations
+*** Running mpi_mcs with 6 processors and 100 iterations ***
+Processor 0 took 0.062517s to run with 6 processors and 100 iterations
+Processor 3 took 0.062223s to run with 6 processors and 100 iterations
+Processor 5 took 0.062278s to run with 6 processors and 100 iterations
+Processor 4 took 0.062399s to run with 6 processors and 100 iterations
+Processor 1 took 0.062517s to run with 6 processors and 100 iterations
+Processor 2 took 0.062365s to run with 6 processors and 100 iterations
+*** Running mpi_mcs with 7 processors and 100 iterations ***
+Processor 0 took 0.063055s to run with 7 processors and 100 iterations
+Processor 3 took 0.062691s to run with 7 processors and 100 iterations
+Processor 4 took 0.062941s to run with 7 processors and 100 iterations
+Processor 6 took 0.062769s to run with 7 processors and 100 iterations
+Processor 2 took 0.062946s to run with 7 processors and 100 iterations
+Processor 5 took 0.062750s to run with 7 processors and 100 iterations
+Processor 1 took 0.062989s to run with 7 processors and 100 iterations
+*** Running mpi_mcs with 8 processors and 100 iterations ***
+Processor 0 took 0.075267s to run with 8 processors and 100 iterations
+Processor 5 took 0.074979s to run with 8 processors and 100 iterations
+Processor 1 took 0.075401s to run with 8 processors and 100 iterations
+Processor 2 took 0.075191s to run with 8 processors and 100 iterations
+Processor 6 took 0.075052s to run with 8 processors and 100 iterations
+Processor 4 took 0.075197s to run with 8 processors and 100 iterations
+Processor 3 took 0.075046s to run with 8 processors and 100 iterations
+Processor 7 took 0.074875s to run with 8 processors and 100 iterations
+*** Running mpi_mcs with 9 processors and 100 iterations ***
+Processor 0 took 0.068495s to run with 9 processors and 100 iterations
+Processor 3 took 0.068246s to run with 9 processors and 100 iterations
+Processor 2 took 0.068270s to run with 9 processors and 100 iterations
+Processor 4 took 0.068295s to run with 9 processors and 100 iterations
+Processor 8 took 0.068433s to run with 9 processors and 100 iterations
+Processor 5 took 0.068260s to run with 9 processors and 100 iterations
+Processor 6 took 0.068277s to run with 9 processors and 100 iterations
+Processor 7 took 0.068136s to run with 9 processors and 100 iterations
+Processor 1 took 0.068645s to run with 9 processors and 100 iterations
+*** Running mpi_mcs with 10 processors and 100 iterations ***
+Processor 0 took 0.077883s to run with 10 processors and 100 iterations
+Processor 9 took 0.077553s to run with 10 processors and 100 iterations
+Processor 8 took 0.077852s to run with 10 processors and 100 iterations
+Processor 4 took 0.077802s to run with 10 processors and 100 iterations
+Processor 5 took 0.077754s to run with 10 processors and 100 iterations
+Processor 1 took 0.077994s to run with 10 processors and 100 iterations
+Processor 2 took 0.077940s to run with 10 processors and 100 iterations
+Processor 3 took 0.077696s to run with 10 processors and 100 iterations
+Processor 6 took 0.077662s to run with 10 processors and 100 iterations
+Processor 7 took 0.077593s to run with 10 processors and 100 iterations
+*** Running mpi_mcs with 11 processors and 100 iterations ***
+Processor 0 took 0.085756s to run with 11 processors and 100 iterations
+Processor 3 took 0.085435s to run with 11 processors and 100 iterations
+Processor 5 took 0.085508s to run with 11 processors and 100 iterations
+Processor 7 took 0.085301s to run with 11 processors and 100 iterations
+Processor 1 took 0.085602s to run with 11 processors and 100 iterations
+Processor 6 took 0.085635s to run with 11 processors and 100 iterations
+Processor 9 took 0.085430s to run with 11 processors and 100 iterations
+Processor 4 took 0.085608s to run with 11 processors and 100 iterations
+Processor 8 took 0.085728s to run with 11 processors and 100 iterations
+Processor 2 took 0.085614s to run with 11 processors and 100 iterations
+Processor 10 took 0.085564s to run with 11 processors and 100 iterations
+*** Running mpi_mcs with 12 processors and 100 iterations ***
+Processor 0 took 0.079730s to run with 12 processors and 100 iterations
+Processor 8 took 0.079587s to run with 12 processors and 100 iterations
+Processor 11 took 0.079192s to run with 12 processors and 100 iterations
+Processor 9 took 0.079585s to run with 12 processors and 100 iterations
+Processor 1 took 0.079582s to run with 12 processors and 100 iterations
+Processor 10 took 0.079392s to run with 12 processors and 100 iterations
+Processor 5 took 0.079316s to run with 12 processors and 100 iterations
+Processor 6 took 0.079540s to run with 12 processors and 100 iterations
+Processor 2 took 0.079522s to run with 12 processors and 100 iterations
+Processor 7 took 0.079372s to run with 12 processors and 100 iterations
+Processor 3 took 0.079419s to run with 12 processors and 100 iterations
+Processor 4 took 0.079488s to run with 12 processors and 100 iterations
+
+=== Done! ===
+Removing user achatterjee32 from group authjobs
