@@ -33,13 +33,13 @@ void tree_barrier(treenode_t *treenode) {
                 MPI_Recv(&childbuffer[i], 1, MPI_INT, treenode->childid_arrive[i], 1, MPI_COMM_WORLD, &mpi_status);
 
             if(childbuffer[i] == I_AM_READY) {
-                printf("Process %d heard back from %d\n", treenode->processid, treenode->childid_arrive[i]);
+                // printf("Process %d heard back from %d\n", treenode->processid, treenode->childid_arrive[i]);
                 treenode->childnotready[i] = 0;
             }
         }
     }
 
-    printf("Processor %d: All my children are ready.\n", treenode->processid);
+    // printf("Processor %d: All my children are ready.\n", treenode->processid);
 
     // Signal to parent that I am ready.
     if(treenode->processid != 0) {

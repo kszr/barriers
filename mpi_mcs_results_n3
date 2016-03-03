@@ -1,0 +1,50 @@
+Adding user achatterjee32 to group authjobs
+Script began: Wed Mar 2 21:21:27 EST 2016
+Node: jinx4
+Current directory: /nethome/achatterjee32/project2/barriers
+
+=== Running MPI MCS Barrier ===
+*** Running mpi_mcs with 2 processors and 100 iterations ***
+Processor 0 took 0.036175s to run with 2 processors and 100 iterations
+Processor 1 took 0.036082s to run with 2 processors and 100 iterations
+*** Running mpi_mcs with 4 processors and 100 iterations ***
+Processor 0 took 0.056546s to run with 4 processors and 100 iterations
+Processor 3 took 0.056565s to run with 4 processors and 100 iterations
+Processor 2 took 0.055761s to run with 4 processors and 100 iterations
+Processor 1 took 0.056408s to run with 4 processors and 100 iterations
+*** Running mpi_mcs with 8 processors and 100 iterations ***
+Processor 0 took 0.075067s to run with 8 processors and 100 iterations
+Processor 3 took 0.074517s to run with 8 processors and 100 iterations
+Processor 6 took 0.075690s to run with 8 processors and 100 iterations
+Processor 1 took 0.075015s to run with 8 processors and 100 iterations
+Processor 2 took 0.075648s to run with 8 processors and 100 iterations
+Processor 4 took 0.075781s to run with 8 processors and 100 iterations
+Processor 5 took 0.075693s to run with 8 processors and 100 iterations
+Processor 7 took 0.075337s to run with 8 processors and 100 iterations
+*** Running mpi_mcs with 10 processors and 100 iterations ***
+Processor 0 took 0.091042s to run with 10 processors and 100 iterations
+Processor 3 took 0.090114s to run with 10 processors and 100 iterations
+Processor 6 took 0.089162s to run with 10 processors and 100 iterations
+Processor 9 took 0.089857s to run with 10 processors and 100 iterations
+Processor 2 took 0.091510s to run with 10 processors and 100 iterations
+Processor 5 took 0.090809s to run with 10 processors and 100 iterations
+Processor 1 took 0.091217s to run with 10 processors and 100 iterations
+Processor 8 took 0.091515s to run with 10 processors and 100 iterations
+Processor 4 took 0.090028s to run with 10 processors and 100 iterations
+Processor 7 took 0.091091s to run with 10 processors and 100 iterations
+*** Running mpi_mcs with 12 processors and 100 iterations ***
+Processor 0 took 0.090251s to run with 12 processors and 100 iterations
+Processor 3 took 0.090527s to run with 12 processors and 100 iterations
+Processor 6 took 0.090977s to run with 12 processors and 100 iterations
+Processor 9 took 0.091340s to run with 12 processors and 100 iterations
+Processor 2 took 0.090923s to run with 12 processors and 100 iterations
+Processor 5 took 0.090802s to run with 12 processors and 100 iterations
+Processor 8 took 0.089127s to run with 12 processors and 100 iterations
+Processor 1 took 0.090568s to run with 12 processors and 100 iterations
+Processor 11 took 0.090768s to run with 12 processors and 100 iterations
+Processor 4 took 0.091112s to run with 12 processors and 100 iterations
+Processor 7 took 0.089618s to run with 12 processors and 100 iterations
+Processor 10 took 0.090314s to run with 12 processors and 100 iterations
+
+=== Done! ===
+Removing user achatterjee32 from group authjobs
