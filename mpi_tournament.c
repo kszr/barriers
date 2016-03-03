@@ -71,6 +71,8 @@ static int join_tournament_aux(processor_t *processor) {
                 processor->has_sent = 0;
             }
         } else {
+            // If this is not a full binary tree (note that it will always be complete), then some nodes will not have a designated sender.
+            // Such nodes will advance to the next round by default.
             processor->round++;
         }
     }
