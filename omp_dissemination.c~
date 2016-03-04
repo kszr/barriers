@@ -66,7 +66,7 @@ int main(int argc, char* argv[]) {
 		int sense = 1;
 		#pragma omp single nowait
 			initialize_barrier(allnodes);
-		T1 = omp_get_wtime();
+		
 		for(i=0; i<num_barriers; i++) {
 			// printf("Thread %d in parallel section.\n", thread_id);
 			#pragma omp critical
@@ -77,12 +77,11 @@ int main(int argc, char* argv[]) {
 								allnodes[thread_id].partnerflags[r][k] = &allnodes[j].myflags[r][k];
 						}
 					}			
-			//T1 = omp_get_wtime();
+			T1 = omp_get_wtime();
 			dissemination_barrier(localflags, &parity, &sense);
-			//T2 = omp_get_wtime();
+			T2 = omp_get_wtime();
 			// printf("Thread %d out from parallel section.\n", thread_id);
 		}
-		T2 = omp_get_wtime();
 		printf("Thread %d spent time= %f \n", thread_id, T2-T1);
 	}
 	
