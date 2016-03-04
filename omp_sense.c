@@ -4,6 +4,7 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include <omp.h>
+#include <sys/time.h>
 
 static int sense = 1;
 static int num_procs;
@@ -36,7 +37,7 @@ int main(int argc, char* argv[]) {
 	/*Serial Code started*/
 	// printf("Serial Section started.\n");
 	omp_set_num_threads(num_procs);
-	double T1, T2;
+	double  T1, T2;
 	
 	/*Parallel Code started*/
 	#pragma omp parallel shared (sense, count)
@@ -45,13 +46,18 @@ int main(int argc, char* argv[]) {
 		int locksense = 1;
 		long i;
 		
+		//T1 = gettimeofday();
+		T1 = omp_get_wtime();
 		for(i=0; i<num_barriers; i++) {
 			// printf("Thread %d in parallel section.\n", thread_id);
-			T1 = omp_get_wtime();
+			//T1 = omp_get_wtime();
 			central_barrier(&locksense);
-			T2 = omp_get_wtime();
+			//T2 = omp_get_wtime();
 			// printf("Thread %d out from parallel section.\n", thread_id);
 		}
+		
+		//T2 = gettimeofday();
+		T2 = omp_get_wtime();
 		printf("Thread %d spent time= %f \n", thread_id, T2-T1);
 	}
 	
