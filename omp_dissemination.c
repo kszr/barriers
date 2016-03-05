@@ -5,6 +5,7 @@
 #include <stdio.h>
 #include <math.h>
 #include <omp.h>
+#include <sys/time.h>
 #include "omp_dissemination.h"
 
 /*
@@ -47,13 +48,11 @@ int main(int argc, char* argv[]) {
 		printf("Enter the total number of processors and how many times you want to simulate the barrier.\n");
 		exit(-1);
 		}
-	
-	/*Serial Code started*/
-	// printf("Serial Section started.\n");
+
 	flags allnodes[num_procs];
 	num_rounds = ceil (log(num_procs)/log(2));
 	omp_set_num_threads(num_procs);
-	double T1, T2;
+	timeval T1, T2;
 	
 	/*Parallel Code started*/
 	#pragma omp parallel shared (allnodes, num_rounds)
@@ -66,9 +65,8 @@ int main(int argc, char* argv[]) {
 		int sense = 1;
 		#pragma omp single nowait
 			initialize_barrier(allnodes);
-		T1 = omp_get_wtime();
+		gettimeofday(&T1, NULL);
 		for(i=0; i<num_barriers; i++) {
-			// printf("Thread %d in parallel section.\n", thread_id);
 			#pragma omp critical
 				for (j=0; j<num_procs; j++)
 					for (k=0; k<num_rounds; k++) {
@@ -76,16 +74,12 @@ int main(int argc, char* argv[]) {
 							for(r=0; r<2; r++)
 								allnodes[thread_id].partnerflags[r][k] = &allnodes[j].myflags[r][k];
 						}
-					}			
-			//T1 = omp_get_wtime();
+					}
 			dissemination_barrier(localflags, &parity, &sense);
-			//T2 = omp_get_wtime();
-			// printf("Thread %d out from parallel section.\n", thread_id);
 		}
-		T2 = omp_get_wtime();
-		printf("Thread %d spent time= %f \n", thread_id, T2-T1);
+		gettimeofday(&T2, NULL);
+		printf("Thread %d spent time= %f \n", thread_id, elapsedTime(T1, T2));
 	}
-	
-	// printf("Control back in to Serial Section.\n");
+
 	return 0;	
 }

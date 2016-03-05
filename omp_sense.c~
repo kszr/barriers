@@ -11,17 +11,17 @@ static int num_procs;
 static int num_barriers;
 static int count;
 
-void central_barrier (int* locksense){
-	*locksense = ! *locksense;
+void central_barrier (int* local_sense){
+	*local_sense = ! *local_sense;
 	
 	#pragma omp critical
 		count -= 1;
 	
 	if (count == 0) {
 		count = num_procs;
-		sense = *locksense;
+		sense = *local_sense;
 	} else
-		while (sense != *locksense);
+		while (sense != *local_sense);
 }
 
 int main(int argc, char* argv[]) {
@@ -34,33 +34,24 @@ int main(int argc, char* argv[]) {
 		exit(-1);
 		}
 	
-	/*Serial Code started*/
-	// printf("Serial Section started.\n");
 	omp_set_num_threads(num_procs);
-	double  T1, T2;
+	timeval  T1, T2;
 	
 	/*Parallel Code started*/
 	#pragma omp parallel shared (sense, count)
 	{
 		int thread_id = omp_get_thread_num();
-		int locksense = 1;
+		int local_sense = 1;
 		long i;
 		
-		//T1 = gettimeofday();
-		T1 = omp_get_wtime();
+		gettimeofday(&T1, NULL);
 		for(i=0; i<num_barriers; i++) {
-			// printf("Thread %d in parallel section.\n", thread_id);
-			//T1 = omp_get_wtime();
-			central_barrier(&locksense);
-			//T2 = omp_get_wtime();
-			// printf("Thread %d out from parallel section.\n", thread_id);
+			central_barrier(&local_sense);
 		}
 		
-		//T2 = gettimeofday();
-		T2 = omp_get_wtime();
-		printf("Thread %d spent time= %f \n", thread_id, T2-T1);
+		gettimeofday(&T2, NULL);
+		printf("Thread %d spent time= %f \n", thread_id, elapsedTime(T1, T2));
 	}
-	
-	// printf("Control back in to Serial Section.\n");
+
 	return 0;	
 }
