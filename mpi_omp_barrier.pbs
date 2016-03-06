@@ -20,7 +20,7 @@ echo "=== Running MPI Tournament Barrier ==="
 for proc in 2 3 4 5 6 7 8 ; do
     for thread in 2 3 4 5 6 7 8 9 10 11 12; do
         export OMP_NUM_THREADS=${thread}
-        echo "*** Running mpi_omp_barrier with ${proc} processors and 100 iterations ***"
+        echo "*** Running mpi_omp_barrier with ${proc} processors and 1,000,000 iterations ***"
         /opt/openmpi-1.4.3-gcc44/bin/mpirun --hostfile $PBS_NODEFILE -np ${proc} ./mpi_omp_barrier -i ${thread}
     done
 done

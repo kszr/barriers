@@ -201,7 +201,7 @@ int main(int argc, char *argv[]) {
     int id;
     int ierr;
     double wtime;
-    int num_iters = 100;
+    int num_iters = 1000000;
 
     // Initiaize MPI
     ierr = MPI_Init(&argc, &argv);
@@ -219,8 +219,6 @@ int main(int argc, char *argv[]) {
     processor.has_sent = 0;
     processor.locksense = 0;
 
-    wtime = MPI_Wtime();
-
     if(argc >=2) {
         if(strcmp(argv[argc-2], "-i") == 0) {
             num_threads = atoi(argv[argc-1]);
@@ -234,12 +232,14 @@ int main(int argc, char *argv[]) {
         }
     }
 
+    wtime = MPI_Wtime();
+
     int i;
     for(i=0; i<num_iters; i++)   
         join_tournament(&processor); 
 
-
     wtime = MPI_Wtime() - wtime;
+
     printf("Processor %d took %fs to run with %d processors and %d iterations\n", id, wtime, num_procs, num_iters);
 
     MPI_Finalize();

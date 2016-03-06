@@ -13,7 +13,7 @@ for path in tournament_files:
     except IOError:
         continue
     for line in file:
-        p = re.compile("took (0.[0-9]*)s to run with ([0-9]*) processors")
+        p = re.compile("took ([0-9]*.[0-9]*)s to run with ([0-9]*) processors")
         m = p.search(line)
         if m:
             try:
@@ -25,7 +25,7 @@ file = open("mpi_tournament_final.txt", "w")
 file.write("MPI Tournament Results\n")
 file.write("(num processors: time in microseconds)\n")
 for key in tournament_map:
-    file.write(str(key) + ": " + str(10000*float(tournament_map[key][0])/int(tournament_map[key][1])));
+    file.write(str(key) + ": " + str(float(tournament_map[key][0])/int(tournament_map[key][1])));
     file.write("\n");
 file.close()
 
@@ -41,7 +41,7 @@ for path in mcs_files:
     except IOError:
         continue
     for line in file:
-        p = re.compile("took (0.[0-9]*)s to run with ([0-9]*) processors")
+        p = re.compile("took ([0-9]*.[0-9]*)s to run with ([0-9]*) processors")
         m = p.search(line)
         if m:
             try:
@@ -53,7 +53,7 @@ file = open("mpi_mcs_final.txt", "w")
 file.write("MPI MCS Results\n")
 file.write("(num processors: time in microseconds)\n")
 for key in mcs_map:
-    file.write(str(key) + ": " + str(10000*float(mcs_map[key][0])/int(mcs_map[key][1])));
+    file.write(str(key) + ": " + str(float(mcs_map[key][0])/int(mcs_map[key][1])));
     file.write("\n");
 file.close()
 
