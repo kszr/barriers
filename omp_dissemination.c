@@ -52,7 +52,7 @@ int main(int argc, char* argv[]) {
 	flags allnodes[num_procs];
 	num_rounds = ceil (log(num_procs)/log(2));
 	omp_set_num_threads(num_procs);
-	timeval T1, T2;
+	struct imeval T1, T2;
 	
 	/*Parallel Code started*/
 	#pragma omp parallel shared (allnodes, num_rounds)

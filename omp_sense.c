@@ -35,22 +35,23 @@ int main(int argc, char* argv[]) {
 		}
 	
 	omp_set_num_threads(num_procs);
-	timeval  T1, T2;
-	
+	//struct timeval  T1, T2;
+	double T1, T2;
 	/*Parallel Code started*/
 	#pragma omp parallel shared (sense, count)
 	{
 		int thread_id = omp_get_thread_num();
 		int local_sense = 1;
 		long i;
-		
-		gettimeofday(&T1, NULL);
+		T1 = omp_get_wtime();
+		//gettimeofday(&T1, NULL);
 		for(i=0; i<num_barriers; i++) {
 			central_barrier(&local_sense);
 		}
-		
-		gettimeofday(&T2, NULL);
-		printf("Thread %d spent time= %f \n", thread_id, elapsedTime(T1, T2));
+		T2 = omp_get_wtime();
+		//gettimeofday(&T2, NULL);
+		//printf("Thread %d spent time= %f \n", thread_id, elapsedTime(T1, T2));
+		printf("Thread %d spent time= %f \n", thread_id, (T1-T2));
 	}
 
 	return 0;	

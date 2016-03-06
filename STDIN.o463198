@@ -1,0 +1,20 @@
+Adding user apatil47 to group authjobs
+Script began: Sat Mar 5 01:43:31 EST 2016
+Node: jinx4
+Current directory: /nethome/apatil47/AOS_P2/barriers
+
+=== Running OMP Sense Reversal Barrier ===
+*** Running omp_sense with 2 threads and 100 iterations ***
+Thread 0 spent time= -0.000094 
+Thread 1 spent time= -0.000094 
+*** Running omp_sense with 3 threads and 100 iterations ***
+Thread 0 spent time= -0.000121 
+Thread 2 spent time= -0.000120 
+Thread 1 spent time= -0.000121 
+*** Running omp_sense with 4 threads and 100 iterations ***
+Thread 2 spent time= -0.000231 
+Thread 0 spent time= -0.000231 
+Thread 1 spent time= -0.000231 
+Thread 3 spent time= -0.000231 
+*** Running omp_sense with 5 threads and 100 iterations ***
+Removing user apatil47 from group authjobs
