@@ -67,7 +67,7 @@ mpi_omp_files = os.listdir(dir_mpi_omp)
 for path in mpi_omp_files:
     file = open(dir_mpi_omp + "/" + path, "r")
     for line in file:
-        p = re.compile("took (0.[0-9]*)s to run with ([0-9]*) processors and ([0-9]*) threads")
+        p = re.compile("took ([0-9]*.[0-9]*)s to run with ([0-9]*) processors, ([0-9]*) threads")
         m = p.search(line)
         if m:
             try:
