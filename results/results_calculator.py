@@ -8,7 +8,10 @@ tournament_map = {}
 dir_tournament = "mpi_tournament_results"
 tournament_files = os.listdir(dir_tournament)
 for path in tournament_files:
-    file = open(dir_tournament + "/" + path, "r")
+    try:
+        file = open(dir_tournament + "/" + path, "r")
+    except IOError:
+        continue
     for line in file:
         p = re.compile("took (0.[0-9]*)s to run with ([0-9]*) processors")
         m = p.search(line)
@@ -33,7 +36,10 @@ mcs_map = {}
 dir_mcs = "mpi_mcs_results"
 mcs_files = os.listdir(dir_mcs)
 for path in mcs_files:
-    file = open(dir_mcs + "/" + path, "r")
+    try:
+        file = open(dir_mcs + "/" + path, "r")
+    except IOError:
+        continue
     for line in file:
         p = re.compile("took (0.[0-9]*)s to run with ([0-9]*) processors")
         m = p.search(line)

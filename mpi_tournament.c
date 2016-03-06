@@ -39,7 +39,8 @@ int join_tournament(processor_t *processor) {
  */
 static int join_tournament_aux(processor_t *processor) {
     int buf;
-    MPI_Status mpi_result;
+    MPI_Status mpi_status;
+    // MPI_Request mpi_request;
     while(processor->locksense != sense) {
         buf = -1;
         // The processor that reaches the root initiates wakeup.
@@ -55,9 +56,10 @@ static int join_tournament_aux(processor_t *processor) {
                 // printf("Processor %d concedes to processor %d\n", processor->id, get_dest(processor));
                 MPI_Send(&buf, 1, MPI_INT, get_dest(processor), 1, MPI_COMM_WORLD);
                 processor->has_sent = 1;
+                continue;
             }
             // Receives a wakeup signal from the processor that beat it.
-            MPI_Recv(&buf, 1, MPI_INT, get_dest(processor), 1, MPI_COMM_WORLD, &mpi_result);
+            MPI_Recv(&buf, 1, MPI_INT, get_dest(processor), 1, MPI_COMM_WORLD, &mpi_status);
             if(buf == WAKEUP_SIGNAL) {
                 wakeup(processor, &buf);
                 processor->locksense = !processor->locksense;
@@ -65,14 +67,16 @@ static int join_tournament_aux(processor_t *processor) {
             }
         } else if(is_receiver(processor)) {
             // Receives a concession signal from the statically determined loser in a round, and advances to the next round.
-            MPI_Recv(&buf, 1, MPI_INT, get_source(processor), 1, MPI_COMM_WORLD, &mpi_result);
+            MPI_Recv(&buf, 1, MPI_INT, get_source(processor), 1, MPI_COMM_WORLD, &mpi_status);
             if(buf == CONCEDE_SIGNAL) {
                 processor->round++;
                 processor->has_sent = 0;
+                printf("Processor %d moves up to the next round legitimately\n", processor->id);
             }
-        } else {
+        } else if(processor->round >= 0) {
             // If this is not a full binary tree (note that it will always be complete), then some nodes will not have a designated sender.
             // Such nodes will advance to the next round by default.
+            printf("Processor %d moves up to the next round by default\n", processor->id);
             processor->round++;
         }
     }
@@ -87,9 +91,10 @@ int wakeup(processor_t *processor, int *buf) {
     while(processor->round != 0) {
         processor->round--;
         *buf = WAKEUP_SIGNAL;
-        // printf("Processor %d sends wakeup signal to processor %d\n", processor->id, get_source(processor));
-        if(get_source(processor) < num_procs)
+        if(get_source(processor) < num_procs) {
+            printf("Processor %d sends wakeup signal to processor %d\n", processor->id, get_source(processor));
             MPI_Send(buf, 1, MPI_INT, get_source(processor), 1, MPI_COMM_WORLD);
+        }
     }
     return 0;
 }
