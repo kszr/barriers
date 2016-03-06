@@ -9,8 +9,8 @@
 #include "mpi.h"
 
 // Signals
-static const int CONCEDE_SIGNAL_TR = 0;
-static const int WAKEUP_SIGNAL_TR = 1;
+static const int CONCEDE_SIGNAL = 0;
+static const int WAKEUP_SIGNAL = 1;
 
 typedef struct processor_s {
     int id; // Processor id
