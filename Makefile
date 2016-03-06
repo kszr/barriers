@@ -10,7 +10,7 @@ MPICC=mpicc
 # MPICC = /opt/openmpi-1.4.3-gcc44/bin/mpicc
 CFLAGS=-c -Wall
 
-all: mpi_tournament mpi_mcs omp_sense omp_dissemination
+all: mpi_tournament mpi_mcs omp_sense omp_dissemination mpi_omp_barrier
 
 mpi_tournament: mpi_tournament.o
 	$(MPICC) mpi_tournament.o -o mpi_tournament
@@ -35,6 +35,12 @@ omp_sense: omp_sense.o
 
 omp_sense.o: omp_sense.c
 	$(CC) $(CFLAGS) -fopenmp omp_sense.c
+
+mpi_omp_barrier: mpi_omp_barrier.o
+	$(MPICC) -fopenmp mpi_omp_barrier.o -o mpi_omp_barrier
+
+mpi_omp_barrier.o: mpi_omp_barrier.c
+	$(MPICC) -fopenmp mpi_omp_barrier.c
 
 clean:
 	$(RM) -f *o mpi_tournament mpi_mcs omp_dissemination omp_sense
