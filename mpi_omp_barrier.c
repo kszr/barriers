@@ -177,7 +177,7 @@ static int run_omp_barrier(int num_threads) {
         flags *localflags = &allnodes[thread_id];
         int parity = 0;
         int dissemination_sense = 1;
-        #pragma omp single nowait
+        #pragma omp single
             initialize_omp_barrier(allnodes, num_threads, num_rounds);
         
             #pragma omp critical
