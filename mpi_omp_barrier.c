@@ -160,12 +160,14 @@ static void omp_dissemination_barrier (flags *localflags, int *parity, int *sens
  */
 static int run_omp_barrier(int num_threads) {
     /*Serial Code started*/
-    printf("Serial Section started.\n");
+    
     flags allnodes[num_threads];
     int num_rounds = ceil (log(num_threads)/log(2));
     omp_set_num_threads(num_threads);
     double T1, T2;
-    
+    	
+     T1 = omp_get_wtime();
+                
     /*Parallel Code started*/
     #pragma omp parallel shared (allnodes, num_rounds)
     {
@@ -186,12 +188,12 @@ static int run_omp_barrier(int num_threads) {
                                 allnodes[thread_id].partnerflags[r][k] = &allnodes[j].myflags[r][k];
                         }
                     }           
-            T1 = omp_get_wtime();
-            omp_dissemination_barrier(localflags, &parity, &sense, num_rounds);
-            T2 = omp_get_wtime();
-        printf("Thread %d spent time= %f \n", thread_id, T2-T1);
-    }
+           omp_dissemination_barrier(localflags, &parity, &sense, num_rounds);
+       }
 
+     T2 = omp_get_wtime();
+//     printf("took %fs to run with %d processors\n", (T2-T1), num_threads);
+    
     return 0;
 }
     

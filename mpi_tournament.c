@@ -51,14 +51,14 @@ static int join_tournament_aux(processor_t *processor) {
         // Statically determined loser in a round needs to concede to a statically determined winner.
         if(is_sender(processor)) {
             if(!processor->has_sent) {
-                buf = CONCEDE_SIGNAL_TR;
+                buf = CONCEDE_SIGNAL;
                 // printf("Processor %d concedes to processor %d\n", processor->id, get_dest(processor));
                 MPI_Send(&buf, 1, MPI_INT, get_dest(processor), 1, MPI_COMM_WORLD);
                 processor->has_sent = 1;
             }
             // Receives a wakeup signal from the processor that beat it.
             MPI_Recv(&buf, 1, MPI_INT, get_dest(processor), 1, MPI_COMM_WORLD, &mpi_result);
-            if(buf == WAKEUP_SIGNAL_TR) {
+            if(buf == WAKEUP_SIGNAL) {
                 wakeup(processor, &buf);
                 processor->locksense = !processor->locksense;
                 processor->has_sent = 0;           
@@ -66,7 +66,7 @@ static int join_tournament_aux(processor_t *processor) {
         } else if(is_receiver(processor)) {
             // Receives a concession signal from the statically determined loser in a round, and advances to the next round.
             MPI_Recv(&buf, 1, MPI_INT, get_source(processor), 1, MPI_COMM_WORLD, &mpi_result);
-            if(buf == CONCEDE_SIGNAL_TR) {
+            if(buf == CONCEDE_SIGNAL) {
                 processor->round++;
                 processor->has_sent = 0;
             }
@@ -86,7 +86,7 @@ static int join_tournament_aux(processor_t *processor) {
 int wakeup(processor_t *processor, int *buf) {
     while(processor->round != 0) {
         processor->round--;
-        *buf = WAKEUP_SIGNAL_TR;
+        *buf = WAKEUP_SIGNAL;
         // printf("Processor %d sends wakeup signal to processor %d\n", processor->id, get_source(processor));
         if(get_source(processor) < num_procs)
             MPI_Send(buf, 1, MPI_INT, get_source(processor), 1, MPI_COMM_WORLD);

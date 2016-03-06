@@ -1,0 +1,24 @@
+/var/lib/torque/mom_priv/jobs/464775.jinx-login.cc.gatech.edu.SC: line 22: setenv: command not found
+/var/lib/torque/mom_priv/jobs/464775.jinx-login.cc.gatech.edu.SC: line 22: setenv: command not found
+/var/lib/torque/mom_priv/jobs/464775.jinx-login.cc.gatech.edu.SC: line 22: setenv: command not found
+/var/lib/torque/mom_priv/jobs/464775.jinx-login.cc.gatech.edu.SC: line 22: setenv: command not found
+/var/lib/torque/mom_priv/jobs/464775.jinx-login.cc.gatech.edu.SC: line 22: setenv: command not found
+/var/lib/torque/mom_priv/jobs/464775.jinx-login.cc.gatech.edu.SC: line 22: setenv: command not found
+/var/lib/torque/mom_priv/jobs/464775.jinx-login.cc.gatech.edu.SC: line 22: setenv: command not found
+/var/lib/torque/mom_priv/jobs/464775.jinx-login.cc.gatech.edu.SC: line 22: setenv: command not found
+/var/lib/torque/mom_priv/jobs/464775.jinx-login.cc.gatech.edu.SC: line 22: setenv: command not found
+/var/lib/torque/mom_priv/jobs/464775.jinx-login.cc.gatech.edu.SC: line 22: setenv: command not found
+/var/lib/torque/mom_priv/jobs/464775.jinx-login.cc.gatech.edu.SC: line 22: setenv: command not found
+/var/lib/torque/mom_priv/jobs/464775.jinx-login.cc.gatech.edu.SC: line 22: setenv: command not found
+/var/lib/torque/mom_priv/jobs/464775.jinx-login.cc.gatech.edu.SC: line 22: setenv: command not found
+/var/lib/torque/mom_priv/jobs/464775.jinx-login.cc.gatech.edu.SC: line 22: setenv: command not found
+/var/lib/torque/mom_priv/jobs/464775.jinx-login.cc.gatech.edu.SC: line 22: setenv: command not found
+/var/lib/torque/mom_priv/jobs/464775.jinx-login.cc.gatech.edu.SC: line 22: setenv: command not found
+=>> PBS: job killed: walltime 630 exceeded limit 600
+mpirun: killing job...
+
+--------------------------------------------------------------------------
+mpirun noticed that process rank 0 with PID 13349 on node jinx13 exited on signal 0 (Unknown signal 0).
+--------------------------------------------------------------------------
+mpirun: clean termination accomplished
+
