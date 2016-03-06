@@ -240,7 +240,7 @@ int main(int argc, char *argv[]) {
 
     wtime = MPI_Wtime() - wtime;
 
-    printf("Processor %d took %fs to run with %d processors and %d iterations\n", id, wtime, num_procs, num_iters);
+    printf("Processor %d took %fs to run with %d processors and %d threads and %d iterations\n", id, wtime, num_procs, num_threads, num_iters);
 
     MPI_Finalize();
     return 0;

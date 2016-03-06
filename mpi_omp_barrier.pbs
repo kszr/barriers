@@ -1,6 +1,6 @@
 #PBS -q class
 #PBS -l nodes=8:sixcore
-#PBS -l walltime=00:30:00
+#PBS -l walltime=01:00:00
 #PBS -N STDIN
 
 # Changes to the directory we were in when we
