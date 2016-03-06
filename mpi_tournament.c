@@ -43,7 +43,7 @@ static int join_tournament_aux(processor_t *processor) {
     while(processor->locksense != sense) {
         buf = -1;
         // The processor that reaches the root initiates wakeup.
-        if(processor->round == (int) log2(num_procs)) {
+        if(processor->round == (int) ceil(log2(num_procs))) {
             wakeup(processor, &buf);
             processor->round = -1; // Ensures that the processor does not enter the send and or receive blocks on the way out.
             processor->locksense = !processor->locksense;
