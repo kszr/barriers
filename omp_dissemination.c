@@ -62,7 +62,7 @@ int main(int argc, char* argv[]) {
 		flags *localflags = &allnodes[thread_id];
 		int parity = 0;
 		int sense = 1;
-		#pragma omp single nowait
+		#pragma omp single
 			initialize_barrier(allnodes);
 		T1 = omp_get_wtime();
 		for(i=0; i<num_barriers; i++) {
