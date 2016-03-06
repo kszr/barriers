@@ -5,7 +5,6 @@
 #include <stdio.h>
 #include <math.h>
 #include <omp.h>
-#include <sys/time.h>
 #include "omp_dissemination.h"
 
 /*
@@ -52,7 +51,7 @@ int main(int argc, char* argv[]) {
 	flags allnodes[num_procs];
 	num_rounds = ceil (log(num_procs)/log(2));
 	omp_set_num_threads(num_procs);
-	struct imeval T1, T2;
+	double T1, T2;
 	
 	/*Parallel Code started*/
 	#pragma omp parallel shared (allnodes, num_rounds)
@@ -65,7 +64,7 @@ int main(int argc, char* argv[]) {
 		int sense = 1;
 		#pragma omp single nowait
 			initialize_barrier(allnodes);
-		gettimeofday(&T1, NULL);
+		T1 = omp_get_wtime();
 		for(i=0; i<num_barriers; i++) {
 			#pragma omp critical
 				for (j=0; j<num_procs; j++)
@@ -77,8 +76,8 @@ int main(int argc, char* argv[]) {
 					}
 			dissemination_barrier(localflags, &parity, &sense);
 		}
-		gettimeofday(&T2, NULL);
-		printf("Thread %d spent time= %f \n", thread_id, elapsedTime(T1, T2));
+		T2 = omp_get_wtime();
+		printf("Thread %d spent time= %f \n", thread_id, (T1, T2));
 	}
 
 	return 0;	

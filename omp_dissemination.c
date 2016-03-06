@@ -77,7 +77,7 @@ int main(int argc, char* argv[]) {
 			dissemination_barrier(localflags, &parity, &sense);
 		}
 		T2 = omp_get_wtime();
-		printf("Thread %d spent time= %f \n", thread_id, elapsedTime(T1, T2));
+		printf("took %fs to run with %d processors\n", (T2-T1), thread_id);
 	}
 
 	return 0;	
