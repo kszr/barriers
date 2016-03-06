@@ -141,16 +141,16 @@ static void initialize_omp_barrier(flags *allnodes, int num_threads, int num_rou
     }
 }
 
-static void omp_dissemination_barrier (flags *localflags, int *parity, int *sense, int num_rounds) {
+static void omp_dissemination_barrier (flags *localflags, int *parity, int *dissemination_sense, int num_rounds) {
     int k;
     for (k=0; k<num_rounds; k++) {
         #pragma omp critical
-            *localflags->partnerflags[*parity][k] = *sense;
-        while(localflags->myflags[*parity][k] != *sense) {}
+            *localflags->partnerflags[*parity][k] = *dissemination_sense;
+        while(localflags->myflags[*parity][k] != *dissemination_sense) {}
     }
     
     if(*parity == 1)
-        *sense = !*sense;
+        *dissemination_sense = !*dissemination_sense;
     *parity = 1 - *parity;
 
 }
@@ -160,7 +160,7 @@ static void omp_dissemination_barrier (flags *localflags, int *parity, int *sens
  */
 static int run_omp_barrier(int num_threads) {
     /*Serial Code started*/
-    
+   
     flags allnodes[num_threads];
     int num_rounds = ceil (log(num_threads)/log(2));
     omp_set_num_threads(num_threads);
@@ -176,7 +176,7 @@ static int run_omp_barrier(int num_threads) {
         int j, r, k;
         flags *localflags = &allnodes[thread_id];
         int parity = 0;
-        int sense = 1;
+        int dissemination_sense = 1;
         #pragma omp single nowait
             initialize_omp_barrier(allnodes, num_threads, num_rounds);
         
@@ -188,7 +188,7 @@ static int run_omp_barrier(int num_threads) {
                                 allnodes[thread_id].partnerflags[r][k] = &allnodes[j].myflags[r][k];
                         }
                     }           
-           omp_dissemination_barrier(localflags, &parity, &sense, num_rounds);
+           omp_dissemination_barrier(localflags, &parity, &dissemination_sense, num_rounds);
        }
 
      T2 = omp_get_wtime();
