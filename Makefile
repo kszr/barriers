@@ -40,7 +40,7 @@ mpi_omp_barrier: mpi_omp_barrier.o
 	$(MPICC) -fopenmp mpi_omp_barrier.o -o mpi_omp_barrier
 
 mpi_omp_barrier.o: mpi_omp_barrier.c
-	$(MPICC) -fopenmp mpi_omp_barrier.c
+	$(MPICC) $(CFLAGS) -fopenmp mpi_omp_barrier.c
 
 clean:
-	$(RM) -f *o mpi_tournament mpi_mcs omp_dissemination omp_sense
+	$(RM) -f *o mpi_tournament mpi_mcs omp_dissemination omp_sense mpi_omp_barrier
