@@ -32,7 +32,7 @@ void tree_barrier(treenode_t *treenode) {
             if(treenode->childid_arrive[i] != -1)
                 MPI_Recv(&childbuffer[i], 1, MPI_INT, treenode->childid_arrive[i], 1, MPI_COMM_WORLD, &mpi_status);
 
-            if(childbuffer[i] == I_AM_READY) {
+            if(childbuffer[i] == I_AM_READY_MCS) {
                 // printf("Process %d heard back from %d\n", treenode->processid, treenode->childid_arrive[i]);
                 treenode->childnotready[i] = 0;
             }
@@ -43,7 +43,7 @@ void tree_barrier(treenode_t *treenode) {
 
     // Signal to parent that I am ready.
     if(treenode->processid != 0) {
-        childbuffer[(treenode->processid - 1) % 4] = I_AM_READY;
+        childbuffer[(treenode->processid - 1) % 4] = I_AM_READY_MCS;
         int parentid_a = (treenode->processid-1)/4;
         MPI_Send(&childbuffer[(treenode->processid - 1) % 4], 1, MPI_INT, parentid_a, 1, MPI_COMM_WORLD);
     }
@@ -58,12 +58,12 @@ void tree_barrier(treenode_t *treenode) {
             buf = -1;
             int parentid_w = (treenode->processid-1)/2; // Different parent for wakeup;
             MPI_Recv(&buf, 1, MPI_INT, parentid_w, 1, MPI_COMM_WORLD, &mpi_status);
-            if(buf == WAKEUP_SIGNAL)
+            if(buf == WAKEUP_SIGNAL_MCS)
                 break;
         }
     }
 
-    buf = WAKEUP_SIGNAL;
+    buf = WAKEUP_SIGNAL_MCS;
     if(treenode->childid_wakeup[0] != -1)
         MPI_Send(&buf, 1, MPI_INT, treenode->childid_wakeup[0], 1, MPI_COMM_WORLD);
     if(treenode->childid_wakeup[1] != -1)

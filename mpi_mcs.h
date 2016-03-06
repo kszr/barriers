@@ -5,8 +5,8 @@
 #define MPI_MCS_H
 
 // Signals
-static const int I_AM_READY = 0;
-static const int WAKEUP_SIGNAL = 1;
+static const int I_AM_READY_MCS = 0;
+static const int WAKEUP_SIGNAL_MCS = 1;
 
 typedef struct treenode_s {
     int processid;

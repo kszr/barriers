@@ -18,6 +18,7 @@ typedef struct flags {
 
 static int sense = 1;
 static int num_procs;
+static int num_threads;
 
 /* Prototypes for helper functions */
 static int is_sender(processor_t *processor);
@@ -27,7 +28,7 @@ static int get_dest(processor_t *processor);
 static int join_tournament_aux(processor_t *processor);
 static void initialize_omp_barrier(flags *allnodes, int num_threads, int num_rounds);
 static void omp_dissemination_barrier (flags *localflags, int *parity, int *sense, int num_rounds);
-static int run_omp_barrier(int num_threads, int num_barriers);
+static int run_omp_barrier(int num_threads);
 
 
 /**
@@ -44,6 +45,7 @@ int join_tournament(processor_t *processor) {
  * A helper function that represents a single instance of the tournament barrier.
  */
 static int join_tournament_aux(processor_t *processor) {
+    run_omp_barrier(num_threads);
     int buf;
     MPI_Status mpi_result;
     while(processor->locksense != sense) {
@@ -156,7 +158,7 @@ static void omp_dissemination_barrier (flags *localflags, int *parity, int *sens
 /**
  * A function that prepares and calls the omp dissemination barrier we wrote separately.
  */
-static int run_omp_barrier(int num_threads, int num_barriers) {
+static int run_omp_barrier(int num_threads) {
     /*Serial Code started*/
     printf("Serial Section started.\n");
     flags allnodes[num_threads];
@@ -176,8 +178,6 @@ static int run_omp_barrier(int num_threads, int num_barriers) {
         #pragma omp single nowait
             initialize_omp_barrier(allnodes, num_threads, num_rounds);
         
-        for(i=0; i<num_barriers; i++) {
-            printf("Thread %d in parallel section.\n", thread_id);
             #pragma omp critical
                 for (j=0; j<num_threads; j++)
                     for (k=0; k<num_rounds; k++) {
@@ -189,12 +189,9 @@ static int run_omp_barrier(int num_threads, int num_barriers) {
             T1 = omp_get_wtime();
             omp_dissemination_barrier(localflags, &parity, &sense, num_rounds);
             T2 = omp_get_wtime();
-            printf("Thread %d out from parallel section.\n", thread_id);
-        }
         printf("Thread %d spent time= %f \n", thread_id, T2-T1);
     }
-    
-    printf("Control back in to Serial Section.\n");
+
     return 0;
 }
     
@@ -202,7 +199,7 @@ int main(int argc, char *argv[]) {
     int id;
     int ierr;
     double wtime;
-    int num_iters = 1;
+    int num_iters = 100;
 
     // Initiaize MPI
     ierr = MPI_Init(&argc, &argv);
@@ -224,13 +221,13 @@ int main(int argc, char *argv[]) {
 
     if(argc >=2) {
         if(strcmp(argv[argc-2], "-i") == 0) {
-            num_iters = atoi(argv[argc-1]);
+            num_threads = atoi(argv[argc-1]);
         } else {
-            fprintf(stderr, "Usage: mpirun -np [num_procs] mpi_omp_barrier -i [num_iters]");
+            fprintf(stderr, "Usage: mpirun -np [num_procs] mpi_omp_barrier -i [num_threads]");
             return 1;
         }
-        if(num_iters < 0) {
-            fprintf(stderr, "Usage: mpirun -np [num_procs] mpi_omp_barrier -i [num_iters]");
+        if(num_threads < 0) {
+            fprintf(stderr, "Usage: mpirun -np [num_procs] mpi_omp_barrier -i [num_threads]");
             return 1;
         }
     }
