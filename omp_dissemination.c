@@ -77,7 +77,7 @@ int main(int argc, char* argv[]) {
 			dissemination_barrier(localflags, &parity, &sense);
 		}
 		T2 = omp_get_wtime();
-		printf("took %fs to run with %d processors\n", (T2-T1), thread_id);
+		printf("took %fs to run with %d processors\n", (T2-T1), num_procs);
 	}
 
 	return 0;	

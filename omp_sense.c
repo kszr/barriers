@@ -46,12 +46,15 @@ int main(int argc, char* argv[]) {
 		T1 = omp_get_wtime();
 		//gettimeofday(&T1, NULL);
 		for(i=0; i<num_barriers; i++) {
+			fprintf(stderr, "%lu\n", i);
 			central_barrier(&local_sense);
+
 		}
+
 		T2 = omp_get_wtime();
 		//gettimeofday(&T2, NULL);
 		//printf("Thread %d spent time= %f \n", thread_id, elapsedTime(T1, T2));
-		printf("took %fs to run with %d processors\n", (T2-T1), thread_id);
+		printf("took %fs to run with %d processors\n", (T2-T1), num_procs);
 	}
 
 	return 0;	
