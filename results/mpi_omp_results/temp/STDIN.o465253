@@ -1,0 +1,471 @@
+Adding user achatterjee32 to group authjobs
+Script began: Sun Mar 6 03:06:08 EST 2016
+Node: jinx4
+Current directory: /nethome/achatterjee32/project2/barriers
+
+=== Running MPI Tournament Barrier ===
+*** Running mpi_omp_barrier with 2 processors and 100 iterations ***
+Processor 0 took 0.032497s to run with 2 processors and 100 iterations
+Processor 1 took 0.032489s to run with 2 processors and 100 iterations
+*** Running mpi_omp_barrier with 2 processors and 100 iterations ***
+Processor 0 took 0.031621s to run with 2 processors and 100 iterations
+Processor 1 took 0.031606s to run with 2 processors and 100 iterations
+*** Running mpi_omp_barrier with 2 processors and 100 iterations ***
+Processor 0 took 0.036296s to run with 2 processors and 100 iterations
+Processor 1 took 0.036240s to run with 2 processors and 100 iterations
+*** Running mpi_omp_barrier with 2 processors and 100 iterations ***
+Processor 0 took 0.032168s to run with 2 processors and 100 iterations
+Processor 1 took 0.032006s to run with 2 processors and 100 iterations
+*** Running mpi_omp_barrier with 2 processors and 100 iterations ***
+Processor 0 took 0.035654s to run with 2 processors and 100 iterations
+Processor 1 took 0.035695s to run with 2 processors and 100 iterations
+*** Running mpi_omp_barrier with 2 processors and 100 iterations ***
+Processor 0 took 0.034842s to run with 2 processors and 100 iterations
+Processor 1 took 0.034734s to run with 2 processors and 100 iterations
+*** Running mpi_omp_barrier with 2 processors and 100 iterations ***
+Processor 0 took 0.034116s to run with 2 processors and 100 iterations
+Processor 1 took 0.034109s to run with 2 processors and 100 iterations
+*** Running mpi_omp_barrier with 2 processors and 100 iterations ***
+Processor 0 took 0.035548s to run with 2 processors and 100 iterations
+Processor 1 took 0.035549s to run with 2 processors and 100 iterations
+*** Running mpi_omp_barrier with 2 processors and 100 iterations ***
+Processor 0 took 0.038403s to run with 2 processors and 100 iterations
+Processor 1 took 0.038360s to run with 2 processors and 100 iterations
+*** Running mpi_omp_barrier with 2 processors and 100 iterations ***
+Processor 0 took 0.036819s to run with 2 processors and 100 iterations
+Processor 1 took 0.036910s to run with 2 processors and 100 iterations
+*** Running mpi_omp_barrier with 2 processors and 100 iterations ***
+Processor 0 took 0.038884s to run with 2 processors and 100 iterations
+Processor 1 took 0.038844s to run with 2 processors and 100 iterations
+*** Running mpi_omp_barrier with 3 processors and 100 iterations ***
+Processor 0 took 0.040154s to run with 3 processors and 100 iterations
+Processor 2 took 0.039926s to run with 3 processors and 100 iterations
+Processor 1 took 0.039985s to run with 3 processors and 100 iterations
+*** Running mpi_omp_barrier with 3 processors and 100 iterations ***
+Processor 0 took 0.036748s to run with 3 processors and 100 iterations
+Processor 2 took 0.036717s to run with 3 processors and 100 iterations
+Processor 1 took 0.036616s to run with 3 processors and 100 iterations
+*** Running mpi_omp_barrier with 3 processors and 100 iterations ***
+Processor 0 took 0.032983s to run with 3 processors and 100 iterations
+Processor 2 took 0.032949s to run with 3 processors and 100 iterations
+Processor 1 took 0.032962s to run with 3 processors and 100 iterations
+*** Running mpi_omp_barrier with 3 processors and 100 iterations ***
+Processor 0 took 0.038506s to run with 3 processors and 100 iterations
+Processor 1 took 0.038459s to run with 3 processors and 100 iterations
+Processor 2 took 0.038249s to run with 3 processors and 100 iterations
+*** Running mpi_omp_barrier with 3 processors and 100 iterations ***
+Processor 0 took 0.035243s to run with 3 processors and 100 iterations
+Processor 1 took 0.035111s to run with 3 processors and 100 iterations
+Processor 2 took 0.035147s to run with 3 processors and 100 iterations
+*** Running mpi_omp_barrier with 3 processors and 100 iterations ***
+Processor 0 took 0.036455s to run with 3 processors and 100 iterations
+Processor 1 took 0.036467s to run with 3 processors and 100 iterations
+Processor 2 took 0.036298s to run with 3 processors and 100 iterations
+*** Running mpi_omp_barrier with 3 processors and 100 iterations ***
+Processor 0 took 0.039622s to run with 3 processors and 100 iterations
+Processor 1 took 0.039521s to run with 3 processors and 100 iterations
+Processor 2 took 0.039598s to run with 3 processors and 100 iterations
+*** Running mpi_omp_barrier with 3 processors and 100 iterations ***
+Processor 0 took 0.039815s to run with 3 processors and 100 iterations
+Processor 2 took 0.039601s to run with 3 processors and 100 iterations
+Processor 1 took 0.039355s to run with 3 processors and 100 iterations
+*** Running mpi_omp_barrier with 3 processors and 100 iterations ***
+Processor 0 took 0.040098s to run with 3 processors and 100 iterations
+Processor 1 took 0.040007s to run with 3 processors and 100 iterations
+Processor 2 took 0.039929s to run with 3 processors and 100 iterations
+*** Running mpi_omp_barrier with 3 processors and 100 iterations ***
+Processor 0 took 0.039843s to run with 3 processors and 100 iterations
+Processor 2 took 0.039806s to run with 3 processors and 100 iterations
+Processor 1 took 0.039815s to run with 3 processors and 100 iterations
+*** Running mpi_omp_barrier with 3 processors and 100 iterations ***
+Processor 0 took 0.040089s to run with 3 processors and 100 iterations
+Processor 1 took 0.040019s to run with 3 processors and 100 iterations
+Processor 2 took 0.039941s to run with 3 processors and 100 iterations
+*** Running mpi_omp_barrier with 4 processors and 100 iterations ***
+Processor 0 took 0.042025s to run with 4 processors and 100 iterations
+Processor 1 took 0.041924s to run with 4 processors and 100 iterations
+Processor 3 took 0.041299s to run with 4 processors and 100 iterations
+Processor 2 took 0.041856s to run with 4 processors and 100 iterations
+*** Running mpi_omp_barrier with 4 processors and 100 iterations ***
+Processor 0 took 0.045893s to run with 4 processors and 100 iterations
+Processor 3 took 0.045705s to run with 4 processors and 100 iterations
+Processor 1 took 0.045791s to run with 4 processors and 100 iterations
+Processor 2 took 0.045706s to run with 4 processors and 100 iterations
+*** Running mpi_omp_barrier with 4 processors and 100 iterations ***
+Processor 0 took 0.041918s to run with 4 processors and 100 iterations
+Processor 1 took 0.041856s to run with 4 processors and 100 iterations
+Processor 3 took 0.041699s to run with 4 processors and 100 iterations
+Processor 2 took 0.041791s to run with 4 processors and 100 iterations
+*** Running mpi_omp_barrier with 4 processors and 100 iterations ***
+Processor 0 took 0.038507s to run with 4 processors and 100 iterations
+Processor 2 took 0.038363s to run with 4 processors and 100 iterations
+Processor 1 took 0.038411s to run with 4 processors and 100 iterations
+Processor 3 took 0.038374s to run with 4 processors and 100 iterations
+*** Running mpi_omp_barrier with 4 processors and 100 iterations ***
+Processor 0 took 0.048142s to run with 4 processors and 100 iterations
+Processor 1 took 0.047984s to run with 4 processors and 100 iterations
+Processor 2 took 0.047973s to run with 4 processors and 100 iterations
+Processor 3 took 0.047947s to run with 4 processors and 100 iterations
+*** Running mpi_omp_barrier with 4 processors and 100 iterations ***
+Processor 0 took 0.042099s to run with 4 processors and 100 iterations
+Processor 1 took 0.041967s to run with 4 processors and 100 iterations
+Processor 2 took 0.041286s to run with 4 processors and 100 iterations
+Processor 3 took 0.041951s to run with 4 processors and 100 iterations
+*** Running mpi_omp_barrier with 4 processors and 100 iterations ***
+Processor 0 took 0.041602s to run with 4 processors and 100 iterations
+Processor 3 took 0.041416s to run with 4 processors and 100 iterations
+Processor 1 took 0.041494s to run with 4 processors and 100 iterations
+Processor 2 took 0.041467s to run with 4 processors and 100 iterations
+*** Running mpi_omp_barrier with 4 processors and 100 iterations ***
+Processor 0 took 0.048205s to run with 4 processors and 100 iterations
+Processor 1 took 0.048001s to run with 4 processors and 100 iterations
+Processor 2 took 0.048086s to run with 4 processors and 100 iterations
+Processor 3 took 0.048162s to run with 4 processors and 100 iterations
+*** Running mpi_omp_barrier with 4 processors and 100 iterations ***
+Processor 0 took 0.044790s to run with 4 processors and 100 iterations
+Processor 2 took 0.044768s to run with 4 processors and 100 iterations
+Processor 3 took 0.044750s to run with 4 processors and 100 iterations
+Processor 1 took 0.044741s to run with 4 processors and 100 iterations
+*** Running mpi_omp_barrier with 4 processors and 100 iterations ***
+Processor 0 took 0.045482s to run with 4 processors and 100 iterations
+Processor 2 took 0.045250s to run with 4 processors and 100 iterations
+Processor 3 took 0.045256s to run with 4 processors and 100 iterations
+Processor 1 took 0.045272s to run with 4 processors and 100 iterations
+*** Running mpi_omp_barrier with 4 processors and 100 iterations ***
+Processor 0 took 0.043484s to run with 4 processors and 100 iterations
+Processor 2 took 0.043468s to run with 4 processors and 100 iterations
+Processor 3 took 0.043558s to run with 4 processors and 100 iterations
+Processor 1 took 0.043593s to run with 4 processors and 100 iterations
+*** Running mpi_omp_barrier with 5 processors and 100 iterations ***
+Processor 0 took 0.041347s to run with 5 processors and 100 iterations
+Processor 1 took 0.041095s to run with 5 processors and 100 iterations
+Processor 4 took 0.040398s to run with 5 processors and 100 iterations
+Processor 2 took 0.040987s to run with 5 processors and 100 iterations
+Processor 3 took 0.041126s to run with 5 processors and 100 iterations
+*** Running mpi_omp_barrier with 5 processors and 100 iterations ***
+Processor 0 took 0.037049s to run with 5 processors and 100 iterations
+Processor 4 took 0.036894s to run with 5 processors and 100 iterations
+Processor 1 took 0.037158s to run with 5 processors and 100 iterations
+Processor 2 took 0.037036s to run with 5 processors and 100 iterations
+Processor 3 took 0.037031s to run with 5 processors and 100 iterations
+*** Running mpi_omp_barrier with 5 processors and 100 iterations ***
+Processor 0 took 0.040049s to run with 5 processors and 100 iterations
+Processor 1 took 0.039973s to run with 5 processors and 100 iterations
+Processor 3 took 0.039989s to run with 5 processors and 100 iterations
+Processor 4 took 0.040001s to run with 5 processors and 100 iterations
+Processor 2 took 0.039997s to run with 5 processors and 100 iterations
+*** Running mpi_omp_barrier with 5 processors and 100 iterations ***
+Processor 0 took 0.043983s to run with 5 processors and 100 iterations
+Processor 4 took 0.043859s to run with 5 processors and 100 iterations
+Processor 1 took 0.043905s to run with 5 processors and 100 iterations
+Processor 3 took 0.043774s to run with 5 processors and 100 iterations
+Processor 2 took 0.043829s to run with 5 processors and 100 iterations
+*** Running mpi_omp_barrier with 5 processors and 100 iterations ***
+Processor 0 took 0.041830s to run with 5 processors and 100 iterations
+Processor 2 took 0.041602s to run with 5 processors and 100 iterations
+Processor 4 took 0.041595s to run with 5 processors and 100 iterations
+Processor 3 took 0.041798s to run with 5 processors and 100 iterations
+Processor 1 took 0.041838s to run with 5 processors and 100 iterations
+*** Running mpi_omp_barrier with 5 processors and 100 iterations ***
+Processor 0 took 0.042876s to run with 5 processors and 100 iterations
+Processor 2 took 0.042712s to run with 5 processors and 100 iterations
+Processor 3 took 0.042839s to run with 5 processors and 100 iterations
+Processor 1 took 0.042780s to run with 5 processors and 100 iterations
+Processor 4 took 0.042853s to run with 5 processors and 100 iterations
+*** Running mpi_omp_barrier with 5 processors and 100 iterations ***
+Processor 0 took 0.045607s to run with 5 processors and 100 iterations
+Processor 4 took 0.045411s to run with 5 processors and 100 iterations
+Processor 1 took 0.045502s to run with 5 processors and 100 iterations
+Processor 2 took 0.045401s to run with 5 processors and 100 iterations
+Processor 3 took 0.045436s to run with 5 processors and 100 iterations
+*** Running mpi_omp_barrier with 5 processors and 100 iterations ***
+Processor 0 took 0.043997s to run with 5 processors and 100 iterations
+Processor 4 took 0.043809s to run with 5 processors and 100 iterations
+Processor 2 took 0.043775s to run with 5 processors and 100 iterations
+Processor 3 took 0.043792s to run with 5 processors and 100 iterations
+Processor 1 took 0.043766s to run with 5 processors and 100 iterations
+*** Running mpi_omp_barrier with 5 processors and 100 iterations ***
+Processor 0 took 0.049737s to run with 5 processors and 100 iterations
+Processor 2 took 0.049659s to run with 5 processors and 100 iterations
+Processor 3 took 0.049522s to run with 5 processors and 100 iterations
+Processor 1 took 0.049547s to run with 5 processors and 100 iterations
+Processor 4 took 0.049507s to run with 5 processors and 100 iterations
+*** Running mpi_omp_barrier with 5 processors and 100 iterations ***
+Processor 0 took 0.044307s to run with 5 processors and 100 iterations
+Processor 4 took 0.044849s to run with 5 processors and 100 iterations
+Processor 2 took 0.044856s to run with 5 processors and 100 iterations
+Processor 3 took 0.044888s to run with 5 processors and 100 iterations
+Processor 1 took 0.044322s to run with 5 processors and 100 iterations
+*** Running mpi_omp_barrier with 5 processors and 100 iterations ***
+Processor 0 took 0.050758s to run with 5 processors and 100 iterations
+Processor 4 took 0.050554s to run with 5 processors and 100 iterations
+Processor 2 took 0.050659s to run with 5 processors and 100 iterations
+Processor 1 took 0.050525s to run with 5 processors and 100 iterations
+Processor 3 took 0.050651s to run with 5 processors and 100 iterations
+*** Running mpi_omp_barrier with 6 processors and 100 iterations ***
+Processor 0 took 0.044624s to run with 6 processors and 100 iterations
+Processor 1 took 0.044583s to run with 6 processors and 100 iterations
+Processor 5 took 0.043588s to run with 6 processors and 100 iterations
+Processor 3 took 0.044492s to run with 6 processors and 100 iterations
+Processor 4 took 0.044313s to run with 6 processors and 100 iterations
+Processor 2 took 0.044449s to run with 6 processors and 100 iterations
+*** Running mpi_omp_barrier with 6 processors and 100 iterations ***
+Processor 0 took 0.040481s to run with 6 processors and 100 iterations
+Processor 5 took 0.040206s to run with 6 processors and 100 iterations
+Processor 3 took 0.040256s to run with 6 processors and 100 iterations
+Processor 2 took 0.040164s to run with 6 processors and 100 iterations
+Processor 1 took 0.040281s to run with 6 processors and 100 iterations
+Processor 4 took 0.040231s to run with 6 processors and 100 iterations
+*** Running mpi_omp_barrier with 6 processors and 100 iterations ***
+Processor 0 took 0.043076s to run with 6 processors and 100 iterations
+Processor 5 took 0.042858s to run with 6 processors and 100 iterations
+Processor 1 took 0.043020s to run with 6 processors and 100 iterations
+Processor 3 took 0.043025s to run with 6 processors and 100 iterations
+Processor 4 took 0.042995s to run with 6 processors and 100 iterations
+Processor 2 took 0.042914s to run with 6 processors and 100 iterations
+*** Running mpi_omp_barrier with 6 processors and 100 iterations ***
+Processor 0 took 0.042511s to run with 6 processors and 100 iterations
+Processor 3 took 0.042351s to run with 6 processors and 100 iterations
+Processor 5 took 0.042284s to run with 6 processors and 100 iterations
+Processor 2 took 0.042365s to run with 6 processors and 100 iterations
+Processor 4 took 0.042409s to run with 6 processors and 100 iterations
+Processor 1 took 0.042448s to run with 6 processors and 100 iterations
+*** Running mpi_omp_barrier with 6 processors and 100 iterations ***
+Processor 0 took 0.046614s to run with 6 processors and 100 iterations
+Processor 5 took 0.046351s to run with 6 processors and 100 iterations
+Processor 2 took 0.046540s to run with 6 processors and 100 iterations
+Processor 3 took 0.046446s to run with 6 processors and 100 iterations
+Processor 1 took 0.046610s to run with 6 processors and 100 iterations
+Processor 4 took 0.046579s to run with 6 processors and 100 iterations
+*** Running mpi_omp_barrier with 6 processors and 100 iterations ***
+Processor 0 took 0.042639s to run with 6 processors and 100 iterations
+Processor 4 took 0.042462s to run with 6 processors and 100 iterations
+Processor 1 took 0.042336s to run with 6 processors and 100 iterations
+Processor 3 took 0.042522s to run with 6 processors and 100 iterations
+Processor 2 took 0.042567s to run with 6 processors and 100 iterations
+Processor 5 took 0.042346s to run with 6 processors and 100 iterations
+*** Running mpi_omp_barrier with 6 processors and 100 iterations ***
+Processor 0 took 0.047020s to run with 6 processors and 100 iterations
+Processor 2 took 0.046909s to run with 6 processors and 100 iterations
+Processor 5 took 0.046773s to run with 6 processors and 100 iterations
+Processor 1 took 0.046866s to run with 6 processors and 100 iterations
+Processor 3 took 0.046794s to run with 6 processors and 100 iterations
+Processor 4 took 0.046871s to run with 6 processors and 100 iterations
+*** Running mpi_omp_barrier with 6 processors and 100 iterations ***
+Processor 0 took 0.047795s to run with 6 processors and 100 iterations
+Processor 5 took 0.047559s to run with 6 processors and 100 iterations
+Processor 2 took 0.047549s to run with 6 processors and 100 iterations
+Processor 1 took 0.047718s to run with 6 processors and 100 iterations
+Processor 4 took 0.047566s to run with 6 processors and 100 iterations
+Processor 3 took 0.047786s to run with 6 processors and 100 iterations
+*** Running mpi_omp_barrier with 6 processors and 100 iterations ***
+Processor 0 took 0.045473s to run with 6 processors and 100 iterations
+Processor 5 took 0.045407s to run with 6 processors and 100 iterations
+Processor 4 took 0.045429s to run with 6 processors and 100 iterations
+Processor 3 took 0.045670s to run with 6 processors and 100 iterations
+Processor 2 took 0.045464s to run with 6 processors and 100 iterations
+Processor 1 took 0.045456s to run with 6 processors and 100 iterations
+*** Running mpi_omp_barrier with 6 processors and 100 iterations ***
+Processor 0 took 0.046531s to run with 6 processors and 100 iterations
+Processor 5 took 0.046236s to run with 6 processors and 100 iterations
+Processor 2 took 0.046327s to run with 6 processors and 100 iterations
+Processor 3 took 0.046374s to run with 6 processors and 100 iterations
+Processor 1 took 0.046343s to run with 6 processors and 100 iterations
+Processor 4 took 0.046466s to run with 6 processors and 100 iterations
+*** Running mpi_omp_barrier with 6 processors and 100 iterations ***
+Processor 0 took 0.049461s to run with 6 processors and 100 iterations
+Processor 5 took 0.049282s to run with 6 processors and 100 iterations
+Processor 2 took 0.049370s to run with 6 processors and 100 iterations
+Processor 3 took 0.049377s to run with 6 processors and 100 iterations
+Processor 1 took 0.049322s to run with 6 processors and 100 iterations
+Processor 4 took 0.049263s to run with 6 processors and 100 iterations
+*** Running mpi_omp_barrier with 7 processors and 100 iterations ***
+Processor 0 took 0.044118s to run with 7 processors and 100 iterations
+Processor 5 took 0.043859s to run with 7 processors and 100 iterations
+Processor 6 took 0.043229s to run with 7 processors and 100 iterations
+Processor 1 took 0.044169s to run with 7 processors and 100 iterations
+Processor 3 took 0.043999s to run with 7 processors and 100 iterations
+Processor 2 took 0.044026s to run with 7 processors and 100 iterations
+Processor 4 took 0.043866s to run with 7 processors and 100 iterations
+*** Running mpi_omp_barrier with 7 processors and 100 iterations ***
+Processor 0 took 0.044140s to run with 7 processors and 100 iterations
+Processor 5 took 0.043791s to run with 7 processors and 100 iterations
+Processor 4 took 0.043952s to run with 7 processors and 100 iterations
+Processor 3 took 0.043918s to run with 7 processors and 100 iterations
+Processor 6 took 0.043754s to run with 7 processors and 100 iterations
+Processor 2 took 0.043876s to run with 7 processors and 100 iterations
+Processor 1 took 0.043926s to run with 7 processors and 100 iterations
+*** Running mpi_omp_barrier with 7 processors and 100 iterations ***
+Processor 0 took 0.045167s to run with 7 processors and 100 iterations
+Processor 3 took 0.044938s to run with 7 processors and 100 iterations
+Processor 5 took 0.044775s to run with 7 processors and 100 iterations
+Processor 6 took 0.044742s to run with 7 processors and 100 iterations
+Processor 1 took 0.045063s to run with 7 processors and 100 iterations
+Processor 2 took 0.045057s to run with 7 processors and 100 iterations
+Processor 4 took 0.044993s to run with 7 processors and 100 iterations
+*** Running mpi_omp_barrier with 7 processors and 100 iterations ***
+Processor 0 took 0.042289s to run with 7 processors and 100 iterations
+Processor 5 took 0.042091s to run with 7 processors and 100 iterations
+Processor 6 took 0.041978s to run with 7 processors and 100 iterations
+Processor 1 took 0.042252s to run with 7 processors and 100 iterations
+Processor 3 took 0.042024s to run with 7 processors and 100 iterations
+Processor 4 took 0.042302s to run with 7 processors and 100 iterations
+Processor 2 took 0.042191s to run with 7 processors and 100 iterations
+*** Running mpi_omp_barrier with 7 processors and 100 iterations ***
+Processor 0 took 0.046043s to run with 7 processors and 100 iterations
+Processor 2 took 0.045876s to run with 7 processors and 100 iterations
+Processor 6 took 0.045859s to run with 7 processors and 100 iterations
+Processor 4 took 0.045913s to run with 7 processors and 100 iterations
+Processor 5 took 0.045687s to run with 7 processors and 100 iterations
+Processor 1 took 0.045929s to run with 7 processors and 100 iterations
+Processor 3 took 0.045769s to run with 7 processors and 100 iterations
+*** Running mpi_omp_barrier with 7 processors and 100 iterations ***
+Processor 0 took 0.045734s to run with 7 processors and 100 iterations
+Processor 4 took 0.045619s to run with 7 processors and 100 iterations
+Processor 5 took 0.045546s to run with 7 processors and 100 iterations
+Processor 3 took 0.045576s to run with 7 processors and 100 iterations
+Processor 1 took 0.045547s to run with 7 processors and 100 iterations
+Processor 6 took 0.045586s to run with 7 processors and 100 iterations
+Processor 2 took 0.045549s to run with 7 processors and 100 iterations
+*** Running mpi_omp_barrier with 7 processors and 100 iterations ***
+Processor 0 took 0.045381s to run with 7 processors and 100 iterations
+Processor 2 took 0.044455s to run with 7 processors and 100 iterations
+Processor 3 took 0.044408s to run with 7 processors and 100 iterations
+Processor 5 took 0.044926s to run with 7 processors and 100 iterations
+Processor 1 took 0.044990s to run with 7 processors and 100 iterations
+Processor 6 took 0.044924s to run with 7 processors and 100 iterations
+Processor 4 took 0.044939s to run with 7 processors and 100 iterations
+*** Running mpi_omp_barrier with 7 processors and 100 iterations ***
+Processor 0 took 0.049864s to run with 7 processors and 100 iterations
+Processor 5 took 0.049539s to run with 7 processors and 100 iterations
+Processor 1 took 0.049768s to run with 7 processors and 100 iterations
+Processor 3 took 0.049567s to run with 7 processors and 100 iterations
+Processor 6 took 0.049495s to run with 7 processors and 100 iterations
+Processor 2 took 0.049723s to run with 7 processors and 100 iterations
+Processor 4 took 0.049760s to run with 7 processors and 100 iterations
+*** Running mpi_omp_barrier with 7 processors and 100 iterations ***
+Processor 0 took 0.047766s to run with 7 processors and 100 iterations
+Processor 5 took 0.047366s to run with 7 processors and 100 iterations
+Processor 2 took 0.047769s to run with 7 processors and 100 iterations
+Processor 4 took 0.046965s to run with 7 processors and 100 iterations
+Processor 1 took 0.047652s to run with 7 processors and 100 iterations
+Processor 6 took 0.047486s to run with 7 processors and 100 iterations
+Processor 3 took 0.047638s to run with 7 processors and 100 iterations
+*** Running mpi_omp_barrier with 7 processors and 100 iterations ***
+Processor 0 took 0.052227s to run with 7 processors and 100 iterations
+Processor 4 took 0.051983s to run with 7 processors and 100 iterations
+Processor 5 took 0.051748s to run with 7 processors and 100 iterations
+Processor 2 took 0.052025s to run with 7 processors and 100 iterations
+Processor 3 took 0.051975s to run with 7 processors and 100 iterations
+Processor 6 took 0.051772s to run with 7 processors and 100 iterations
+Processor 1 took 0.052184s to run with 7 processors and 100 iterations
+*** Running mpi_omp_barrier with 7 processors and 100 iterations ***
+Processor 0 took 0.050196s to run with 7 processors and 100 iterations
+Processor 5 took 0.049898s to run with 7 processors and 100 iterations
+Processor 4 took 0.049983s to run with 7 processors and 100 iterations
+Processor 3 took 0.050007s to run with 7 processors and 100 iterations
+Processor 2 took 0.049943s to run with 7 processors and 100 iterations
+Processor 6 took 0.049758s to run with 7 processors and 100 iterations
+Processor 1 took 0.050150s to run with 7 processors and 100 iterations
+*** Running mpi_omp_barrier with 8 processors and 100 iterations ***
+Processor 0 took 0.052044s to run with 8 processors and 100 iterations
+Processor 6 took 0.051580s to run with 8 processors and 100 iterations
+Processor 2 took 0.051907s to run with 8 processors and 100 iterations
+Processor 3 took 0.051703s to run with 8 processors and 100 iterations
+Processor 4 took 0.051897s to run with 8 processors and 100 iterations
+Processor 5 took 0.051781s to run with 8 processors and 100 iterations
+Processor 1 took 0.051981s to run with 8 processors and 100 iterations
+Processor 7 took 0.050870s to run with 8 processors and 100 iterations
+*** Running mpi_omp_barrier with 8 processors and 100 iterations ***
+Processor 0 took 0.047377s to run with 8 processors and 100 iterations
+Processor 1 took 0.047184s to run with 8 processors and 100 iterations
+Processor 5 took 0.047180s to run with 8 processors and 100 iterations
+Processor 7 took 0.046885s to run with 8 processors and 100 iterations
+Processor 2 took 0.047142s to run with 8 processors and 100 iterations
+Processor 4 took 0.047185s to run with 8 processors and 100 iterations
+Processor 6 took 0.047047s to run with 8 processors and 100 iterations
+Processor 3 took 0.047076s to run with 8 processors and 100 iterations
+*** Running mpi_omp_barrier with 8 processors and 100 iterations ***
+Processor 0 took 0.047916s to run with 8 processors and 100 iterations
+Processor 7 took 0.047541s to run with 8 processors and 100 iterations
+Processor 3 took 0.047783s to run with 8 processors and 100 iterations
+Processor 5 took 0.047586s to run with 8 processors and 100 iterations
+Processor 1 took 0.047792s to run with 8 processors and 100 iterations
+Processor 4 took 0.047804s to run with 8 processors and 100 iterations
+Processor 2 took 0.047766s to run with 8 processors and 100 iterations
+Processor 6 took 0.047592s to run with 8 processors and 100 iterations
+*** Running mpi_omp_barrier with 8 processors and 100 iterations ***
+Processor 0 took 0.049643s to run with 8 processors and 100 iterations
+Processor 1 took 0.049696s to run with 8 processors and 100 iterations
+Processor 3 took 0.049567s to run with 8 processors and 100 iterations
+Processor 7 took 0.049359s to run with 8 processors and 100 iterations
+Processor 2 took 0.049586s to run with 8 processors and 100 iterations
+Processor 5 took 0.049480s to run with 8 processors and 100 iterations
+Processor 6 took 0.049488s to run with 8 processors and 100 iterations
+Processor 4 took 0.049625s to run with 8 processors and 100 iterations
+*** Running mpi_omp_barrier with 8 processors and 100 iterations ***
+Processor 0 took 0.048954s to run with 8 processors and 100 iterations
+Processor 4 took 0.048727s to run with 8 processors and 100 iterations
+Processor 1 took 0.048713s to run with 8 processors and 100 iterations
+Processor 3 took 0.048844s to run with 8 processors and 100 iterations
+Processor 6 took 0.048568s to run with 8 processors and 100 iterations
+Processor 5 took 0.048724s to run with 8 processors and 100 iterations
+Processor 2 took 0.048664s to run with 8 processors and 100 iterations
+Processor 7 took 0.048585s to run with 8 processors and 100 iterations
+*** Running mpi_omp_barrier with 8 processors and 100 iterations ***
+Processor 0 took 0.048458s to run with 8 processors and 100 iterations
+Processor 7 took 0.048192s to run with 8 processors and 100 iterations
+Processor 5 took 0.048345s to run with 8 processors and 100 iterations
+Processor 2 took 0.048397s to run with 8 processors and 100 iterations
+Processor 1 took 0.048362s to run with 8 processors and 100 iterations
+Processor 4 took 0.048403s to run with 8 processors and 100 iterations
+Processor 6 took 0.048421s to run with 8 processors and 100 iterations
+Processor 3 took 0.048479s to run with 8 processors and 100 iterations
+*** Running mpi_omp_barrier with 8 processors and 100 iterations ***
+Processor 0 took 0.047986s to run with 8 processors and 100 iterations
+Processor 2 took 0.048624s to run with 8 processors and 100 iterations
+Processor 6 took 0.048575s to run with 8 processors and 100 iterations
+Processor 5 took 0.048501s to run with 8 processors and 100 iterations
+Processor 7 took 0.048389s to run with 8 processors and 100 iterations
+Processor 3 took 0.048574s to run with 8 processors and 100 iterations
+Processor 1 took 0.047994s to run with 8 processors and 100 iterations
+Processor 4 took 0.048506s to run with 8 processors and 100 iterations
+*** Running mpi_omp_barrier with 8 processors and 100 iterations ***
+Processor 0 took 0.054874s to run with 8 processors and 100 iterations
+Processor 3 took 0.054537s to run with 8 processors and 100 iterations
+Processor 1 took 0.054720s to run with 8 processors and 100 iterations
+Processor 5 took 0.054590s to run with 8 processors and 100 iterations
+Processor 7 took 0.054495s to run with 8 processors and 100 iterations
+Processor 2 took 0.054700s to run with 8 processors and 100 iterations
+Processor 6 took 0.054555s to run with 8 processors and 100 iterations
+Processor 4 took 0.054685s to run with 8 processors and 100 iterations
+*** Running mpi_omp_barrier with 8 processors and 100 iterations ***
+Processor 0 took 0.054793s to run with 8 processors and 100 iterations
+Processor 5 took 0.053919s to run with 8 processors and 100 iterations
+Processor 3 took 0.054668s to run with 8 processors and 100 iterations
+Processor 6 took 0.054706s to run with 8 processors and 100 iterations
+Processor 4 took 0.054810s to run with 8 processors and 100 iterations
+Processor 1 took 0.054898s to run with 8 processors and 100 iterations
+Processor 7 took 0.054606s to run with 8 processors and 100 iterations
+Processor 2 took 0.054769s to run with 8 processors and 100 iterations
+*** Running mpi_omp_barrier with 8 processors and 100 iterations ***
+Processor 0 took 0.055524s to run with 8 processors and 100 iterations
+Processor 6 took 0.055280s to run with 8 processors and 100 iterations
+Processor 7 took 0.055151s to run with 8 processors and 100 iterations
+Processor 2 took 0.055466s to run with 8 processors and 100 iterations
+Processor 4 took 0.055613s to run with 8 processors and 100 iterations
+Processor 3 took 0.055519s to run with 8 processors and 100 iterations
+Processor 5 took 0.055265s to run with 8 processors and 100 iterations
+Processor 1 took 0.055500s to run with 8 processors and 100 iterations
+*** Running mpi_omp_barrier with 8 processors and 100 iterations ***
+Processor 0 took 0.052811s to run with 8 processors and 100 iterations
+Processor 7 took 0.052323s to run with 8 processors and 100 iterations
+Processor 4 took 0.052645s to run with 8 processors and 100 iterations
+Processor 5 took 0.052438s to run with 8 processors and 100 iterations
+Processor 2 took 0.052578s to run with 8 processors and 100 iterations
+Processor 3 took 0.052492s to run with 8 processors and 100 iterations
+Processor 1 took 0.052608s to run with 8 processors and 100 iterations
+Processor 6 took 0.052562s to run with 8 processors and 100 iterations
+
+=== Done! ===
+Removing user achatterjee32 from group authjobs

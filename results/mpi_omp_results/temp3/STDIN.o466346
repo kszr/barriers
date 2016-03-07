@@ -1,0 +1,58 @@
+Adding user achatterjee32 to group authjobs
+Script began: Sun Mar 6 17:53:28 EST 2016
+Node: jinx4
+Current directory: /nethome/achatterjee32/project2/barriers
+
+=== Running MPI Tournament Barrier ===
+
+*** Running mpi_omp_barrier with 2 processors, 12 threads, and 1,000,000 iterations ***
+Processor 0 took 57.714195s to run with 2 processors and 1000000 iterations
+Processor 1 took 57.714063s to run with 2 processors and 1000000 iterations
+
+*** Running mpi_omp_barrier with 3 processors, 12 threads, and 1,000,000 iterations ***
+Processor 0 took 59.786091s to run with 3 processors and 1000000 iterations
+Processor 2 took 59.785893s to run with 3 processors and 1000000 iterations
+Processor 1 took 59.785812s to run with 3 processors and 1000000 iterations
+
+*** Running mpi_omp_barrier with 4 processors, 12 threads, and 1,000,000 iterations ***
+Processor 0 took 61.908585s to run with 4 processors and 1000000 iterations
+Processor 3 took 61.908381s to run with 4 processors and 1000000 iterations
+Processor 1 took 61.908471s to run with 4 processors and 1000000 iterations
+Processor 2 took 61.908442s to run with 4 processors and 1000000 iterations
+
+*** Running mpi_omp_barrier with 5 processors, 12 threads, and 1,000,000 iterations ***
+Processor 0 took 63.012108s to run with 5 processors and 1000000 iterations
+Processor 1 took 63.012092s to run with 5 processors and 1000000 iterations
+Processor 4 took 63.011955s to run with 5 processors and 1000000 iterations
+Processor 3 took 63.011988s to run with 5 processors and 1000000 iterations
+Processor 2 took 63.012071s to run with 5 processors and 1000000 iterations
+
+*** Running mpi_omp_barrier with 6 processors, 12 threads, and 1,000,000 iterations ***
+Processor 0 took 64.221130s to run with 6 processors and 1000000 iterations
+Processor 3 took 64.220909s to run with 6 processors and 1000000 iterations
+Processor 2 took 64.220804s to run with 6 processors and 1000000 iterations
+Processor 4 took 64.220812s to run with 6 processors and 1000000 iterations
+Processor 1 took 64.220937s to run with 6 processors and 1000000 iterations
+Processor 5 took 64.220806s to run with 6 processors and 1000000 iterations
+
+*** Running mpi_omp_barrier with 7 processors, 12 threads, and 1,000,000 iterations ***
+Processor 0 took 64.156155s to run with 7 processors and 1000000 iterations
+Processor 3 took 64.155855s to run with 7 processors and 1000000 iterations
+Processor 4 took 64.156014s to run with 7 processors and 1000000 iterations
+Processor 2 took 64.155908s to run with 7 processors and 1000000 iterations
+Processor 5 took 64.155817s to run with 7 processors and 1000000 iterations
+Processor 6 took 64.155696s to run with 7 processors and 1000000 iterations
+Processor 1 took 64.155908s to run with 7 processors and 1000000 iterations
+
+*** Running mpi_omp_barrier with 8 processors, 12 threads, and 1,000,000 iterations ***
+Processor 0 took 66.297235s to run with 8 processors and 1000000 iterations
+Processor 2 took 66.296893s to run with 8 processors and 1000000 iterations
+Processor 7 took 66.296684s to run with 8 processors and 1000000 iterations
+Processor 3 took 66.296936s to run with 8 processors and 1000000 iterations
+Processor 6 took 66.296692s to run with 8 processors and 1000000 iterations
+Processor 1 took 66.296898s to run with 8 processors and 1000000 iterations
+Processor 5 took 66.296754s to run with 8 processors and 1000000 iterations
+Processor 4 took 66.296973s to run with 8 processors and 1000000 iterations
+
+=== Done! ===
+Removing user achatterjee32 from group authjobs

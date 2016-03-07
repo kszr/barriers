@@ -56,6 +56,8 @@ for key in mcs_map:
     file.write(str(key) + ": " + str(float(mcs_map[key][0])/int(mcs_map[key][1])));
     file.write("\n");
 file.close()
+<<<<<<< HEAD
+=======
 
 
 """
@@ -150,3 +152,4 @@ for key in omp_sense_map:
     file.write(str(key) + ": " + str(float(omp_sense_map[key][0])/int(omp_sense_map[key][1])));
     file.write("\n");
 file.close()
+>>>>>>> 731cf925722b2179b4dfd115377738407c465f10
