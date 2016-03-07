@@ -70,21 +70,21 @@ for path in mpi_omp_files:
     except IOError:
         continue
     for line in file:
-        p = re.compile("took ([0-9]*.[0-9]*)s to run with ([0-9]*) processors") # and ([0-9]*) threads")
+        p = re.compile("took ([0-9]*.[0-9]*)s to run with ([0-9]*) processors and ([0-9]*) threads")
         # p = re.compile("took ([0-9]*.[0-9]*)s to run with ([0-9]*) processors")
         m = p.search(line)
         if m:
             try:
-                # mpi_omp_map[int(m.groups()[1])][int(m.groups()[2])] = (float(m.groups()[0])+mpi_omp_map[int(m.groups()[1])][int(m.groups()[2])][0], 1+int(mpi_omp_map[int(m.groups()[1])][int(m.groups()[2])][1]))
-                mpi_omp_map[int(m.groups()[1])][12] = (float(m.groups()[0])+mpi_omp_map[int(m.groups()[1])][12][0], 1+int(mpi_omp_map[int(m.groups()[1])][12][1]))
+                mpi_omp_map[int(m.groups()[1])][int(m.groups()[2])] = (float(m.groups()[0])+mpi_omp_map[int(m.groups()[1])][int(m.groups()[2])][0], 1+int(mpi_omp_map[int(m.groups()[1])][int(m.groups()[2])][1]))
+                # mpi_omp_map[int(m.groups()[1])][12] = (float(m.groups()[0])+mpi_omp_map[int(m.groups()[1])][12][0], 1+int(mpi_omp_map[int(m.groups()[1])][12][1]))
             except KeyError:
                 try:
-                    # mpi_omp_map[int(m.groups()[1])][int(m.groups()[2])] = (float(m.groups()[0]),1)
-                    mpi_omp_map[int(m.groups()[1])][12] = (float(m.groups()[0]),1)
+                    mpi_omp_map[int(m.groups()[1])][int(m.groups()[2])] = (float(m.groups()[0]),1)
+                    # mpi_omp_map[int(m.groups()[1])][12] = (float(m.groups()[0]),1)
                 except KeyError:
                     mpi_omp_map[int(m.groups()[1])] = {}
-                    # mpi_omp_map[int(m.groups()[1])][int(m.groups()[2])] = (float(m.groups()[0]),1)
-                    mpi_omp_map[int(m.groups()[1])][12] = (float(m.groups()[0]),1)
+                    mpi_omp_map[int(m.groups()[1])][int(m.groups()[2])] = (float(m.groups()[0]),1)
+                    # mpi_omp_map[int(m.groups()[1])][12] = (float(m.groups()[0]),1)
 
 file = open("mpi_omp_final.txt", "w")
 file.write("MPI OMP Results\n")
