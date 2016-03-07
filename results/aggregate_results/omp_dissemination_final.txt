@@ -1,0 +1,9 @@
+OMP Dissemination Results
+(num threads: time in microseconds)
+2: 0.8228195
+3: 2.46975083333
+4: 4.1536048125
+5: 7.951274
+6: 10.71001525
+7: 13.1773457143
+8: 16.4041124375

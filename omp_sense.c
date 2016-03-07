@@ -21,11 +21,12 @@ void central_barrier (int* local_sense){
 	if (count == 0) {
 		count = num_procs;
 		sense = *local_sense;
-		return;
+		//return;
 	}
 	}
 	
-	while (sense != *local_sense) {}
+	if(count != num_procs)
+		while (sense != *local_sense) {}
 }
 
 int main(int argc, char* argv[]) {

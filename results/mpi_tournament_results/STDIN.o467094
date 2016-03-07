@@ -1,0 +1,97 @@
+Adding user achatterjee32 to group authjobs
+Script began: Mon Mar 7 09:39:38 EST 2016
+Node: jinx4
+Current directory: /nethome/achatterjee32/project2/barriers
+
+=== Running MPI Tournament Barrier ===
+*** Running mpi_tournament with 2 processors and 1,000,000 iterations ***
+Processor 0 took 3.697221s to run with 2 processors and 1000000 iterations
+Processor 1 took 3.697128s to run with 2 processors and 1000000 iterations
+*** Running mpi_tournament with 3 processors and 1,000,000 iterations ***
+Processor 0 took 4.767854s to run with 3 processors and 1000000 iterations
+Processor 1 took 4.767970s to run with 3 processors and 1000000 iterations
+Processor 2 took 4.768550s to run with 3 processors and 1000000 iterations
+*** Running mpi_tournament with 4 processors and 1,000,000 iterations ***
+Processor 0 took 7.185648s to run with 4 processors and 1000000 iterations
+Processor 1 took 7.185556s to run with 4 processors and 1000000 iterations
+Processor 2 took 7.185613s to run with 4 processors and 1000000 iterations
+Processor 3 took 7.185381s to run with 4 processors and 1000000 iterations
+*** Running mpi_tournament with 5 processors and 1,000,000 iterations ***
+Processor 0 took 8.161086s to run with 5 processors and 1000000 iterations
+Processor 1 took 8.160951s to run with 5 processors and 1000000 iterations
+Processor 4 took 8.160898s to run with 5 processors and 1000000 iterations
+Processor 2 took 8.160288s to run with 5 processors and 1000000 iterations
+Processor 3 took 8.160018s to run with 5 processors and 1000000 iterations
+*** Running mpi_tournament with 6 processors and 1,000,000 iterations ***
+Processor 0 took 8.320482s to run with 6 processors and 1000000 iterations
+Processor 1 took 8.320433s to run with 6 processors and 1000000 iterations
+Processor 5 took 8.320242s to run with 6 processors and 1000000 iterations
+Processor 4 took 8.319733s to run with 6 processors and 1000000 iterations
+Processor 3 took 8.320366s to run with 6 processors and 1000000 iterations
+Processor 2 took 8.320371s to run with 6 processors and 1000000 iterations
+*** Running mpi_tournament with 7 processors and 1,000,000 iterations ***
+Processor 0 took 8.722686s to run with 7 processors and 1000000 iterations
+Processor 3 took 8.722529s to run with 7 processors and 1000000 iterations
+Processor 6 took 8.722391s to run with 7 processors and 1000000 iterations
+Processor 1 took 8.722598s to run with 7 processors and 1000000 iterations
+Processor 4 took 8.722601s to run with 7 processors and 1000000 iterations
+Processor 5 took 8.722427s to run with 7 processors and 1000000 iterations
+Processor 2 took 8.722520s to run with 7 processors and 1000000 iterations
+*** Running mpi_tournament with 8 processors and 1,000,000 iterations ***
+Processor 0 took 10.796336s to run with 8 processors and 1000000 iterations
+Processor 2 took 10.796281s to run with 8 processors and 1000000 iterations
+Processor 4 took 10.796216s to run with 8 processors and 1000000 iterations
+Processor 1 took 10.796239s to run with 8 processors and 1000000 iterations
+Processor 3 took 10.796030s to run with 8 processors and 1000000 iterations
+Processor 5 took 10.795342s to run with 8 processors and 1000000 iterations
+Processor 6 took 10.795286s to run with 8 processors and 1000000 iterations
+Processor 7 took 10.795243s to run with 8 processors and 1000000 iterations
+*** Running mpi_tournament with 9 processors and 1,000,000 iterations ***
+Processor 0 took 11.830240s to run with 9 processors and 1000000 iterations
+Processor 3 took 11.829972s to run with 9 processors and 1000000 iterations
+Processor 7 took 11.829823s to run with 9 processors and 1000000 iterations
+Processor 8 took 11.829452s to run with 9 processors and 1000000 iterations
+Processor 1 took 11.830161s to run with 9 processors and 1000000 iterations
+Processor 5 took 11.829909s to run with 9 processors and 1000000 iterations
+Processor 4 took 11.830155s to run with 9 processors and 1000000 iterations
+Processor 2 took 11.830006s to run with 9 processors and 1000000 iterations
+Processor 6 took 11.829962s to run with 9 processors and 1000000 iterations
+*** Running mpi_tournament with 10 processors and 1,000,000 iterations ***
+Processor 0 took 11.880889s to run with 10 processors and 1000000 iterations
+Processor 9 took 11.880703s to run with 10 processors and 1000000 iterations
+Processor 7 took 11.881350s to run with 10 processors and 1000000 iterations
+Processor 1 took 11.880918s to run with 10 processors and 1000000 iterations
+Processor 5 took 11.881479s to run with 10 processors and 1000000 iterations
+Processor 3 took 11.881507s to run with 10 processors and 1000000 iterations
+Processor 2 took 11.881559s to run with 10 processors and 1000000 iterations
+Processor 8 took 11.881567s to run with 10 processors and 1000000 iterations
+Processor 4 took 11.881564s to run with 10 processors and 1000000 iterations
+Processor 6 took 11.881389s to run with 10 processors and 1000000 iterations
+*** Running mpi_tournament with 11 processors and 1,000,000 iterations ***
+Processor 0 took 12.016850s to run with 11 processors and 1000000 iterations
+Processor 9 took 12.016587s to run with 11 processors and 1000000 iterations
+Processor 5 took 12.016359s to run with 11 processors and 1000000 iterations
+Processor 4 took 12.016641s to run with 11 processors and 1000000 iterations
+Processor 8 took 12.016603s to run with 11 processors and 1000000 iterations
+Processor 1 took 12.016661s to run with 11 processors and 1000000 iterations
+Processor 3 took 12.015852s to run with 11 processors and 1000000 iterations
+Processor 7 took 12.016369s to run with 11 processors and 1000000 iterations
+Processor 2 took 12.015960s to run with 11 processors and 1000000 iterations
+Processor 6 took 12.016449s to run with 11 processors and 1000000 iterations
+Processor 10 took 12.015832s to run with 11 processors and 1000000 iterations
+*** Running mpi_tournament with 12 processors and 1,000,000 iterations ***
+Processor 0 took 12.612579s to run with 12 processors and 1000000 iterations
+Processor 3 took 12.612307s to run with 12 processors and 1000000 iterations
+Processor 10 took 12.612253s to run with 12 processors and 1000000 iterations
+Processor 2 took 12.612561s to run with 12 processors and 1000000 iterations
+Processor 1 took 12.612477s to run with 12 processors and 1000000 iterations
+Processor 7 took 12.612212s to run with 12 processors and 1000000 iterations
+Processor 5 took 12.612404s to run with 12 processors and 1000000 iterations
+Processor 4 took 12.611763s to run with 12 processors and 1000000 iterations
+Processor 9 took 12.612317s to run with 12 processors and 1000000 iterations
+Processor 6 took 12.612454s to run with 12 processors and 1000000 iterations
+Processor 8 took 12.612344s to run with 12 processors and 1000000 iterations
+Processor 11 took 12.611718s to run with 12 processors and 1000000 iterations
+
+=== Done! ===
+Removing user achatterjee32 from group authjobs

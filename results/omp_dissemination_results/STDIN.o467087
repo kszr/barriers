@@ -1,0 +1,51 @@
+Adding user achatterjee32 to group authjobs
+Script began: Mon Mar 7 09:26:37 EST 2016
+Node: jinx5
+Current directory: /nethome/achatterjee32/project2/barriers
+
+=== Running OMP Dissemination Barrier ===
+*** Running omp_dissemination with 2 threads and 1,000,000 iterations ***
+took 0.831328s to run with 2 processors
+took 0.831329s to run with 2 processors
+*** Running omp_dissemination with 3 threads and 1,000,000 iterations ***
+took 2.510977s to run with 3 processors
+took 2.510977s to run with 3 processors
+took 2.510977s to run with 3 processors
+*** Running omp_dissemination with 4 threads and 1,000,000 iterations ***
+took 4.175504s to run with 4 processors
+took 4.175504s to run with 4 processors
+took 4.175503s to run with 4 processors
+took 4.175503s to run with 4 processors
+*** Running omp_dissemination with 5 threads and 1,000,000 iterations ***
+took 8.010685s to run with 5 processors
+took 8.010684s to run with 5 processors
+took 8.010684s to run with 5 processors
+took 8.010684s to run with 5 processors
+took 8.010684s to run with 5 processors
+*** Running omp_dissemination with 6 threads and 1,000,000 iterations ***
+took 10.810446s to run with 6 processors
+took 10.810446s to run with 6 processors
+took 10.810445s to run with 6 processors
+took 10.810445s to run with 6 processors
+took 10.810446s to run with 6 processors
+took 10.810446s to run with 6 processors
+*** Running omp_dissemination with 7 threads and 1,000,000 iterations ***
+took 13.084605s to run with 7 processors
+took 13.084603s to run with 7 processors
+took 13.084604s to run with 7 processors
+took 13.084604s to run with 7 processors
+took 13.084604s to run with 7 processors
+took 13.084605s to run with 7 processors
+took 13.084605s to run with 7 processors
+*** Running omp_dissemination with 8 threads and 1,000,000 iterations ***
+took 16.548952s to run with 8 processors
+took 16.548950s to run with 8 processors
+took 16.548952s to run with 8 processors
+took 16.548950s to run with 8 processors
+took 16.548952s to run with 8 processors
+took 16.548952s to run with 8 processors
+took 16.548951s to run with 8 processors
+took 16.548952s to run with 8 processors
+
+=== Done! ===
+Removing user achatterjee32 from group authjobs

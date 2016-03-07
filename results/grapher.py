@@ -8,7 +8,7 @@ import re
 Plotting MPI MCS and Tournament Barriers.
 """
 mcs_vals = []
-file = open("mpi_mcs_final.txt", "r")
+file = open("aggregate_results/mpi_mcs_final.txt", "r")
 for line in file:
     p = re.compile("([0-9]+): ([0-9]+.[0-9]+)")
     m = p.search(line)
@@ -17,7 +17,7 @@ for line in file:
 mcs_results = np.array(mcs_vals)
 
 tournament_vals = []
-file = open("mpi_tournament_final.txt", "r")
+file = open("aggregate_results/mpi_tournament_final.txt", "r")
 for line in file:
     p = re.compile("([0-9]+): ([0-9]+.[0-9]+)")
     m = p.search(line)
@@ -31,14 +31,14 @@ plt.plot(x, tournament_results, "s-", label="Tournament")
 plt.xlabel("Number of Processors")
 plt.ylabel(r"Time ($\mu$s)")
 plt.legend(("MCS","Tournament"), loc="upper left")
-plt.savefig("MCS_Tourney.png")
+plt.savefig("graphs/MCS_Tourney.png")
 
 
 """
 Plotting MPI-OMP with 12 threads per process against MPI MCS and MPI Tournament.
 """
 mpi_omp_vals = []
-file = open("mpi_omp_final.txt", "r")
+file = open("aggregate_results/mpi_omp_final.txt", "r")
 for line in file:
     p = re.compile("([0-9]+): 12: ([0-9]+.[0-9]+)")
     m = p.search(line)
@@ -54,14 +54,14 @@ plt.plot(x, mpi_omp_results, "^-", label="MPI OMP")
 plt.xlabel("Number of Processors")
 plt.ylabel(r"Time ($\mu$s)")
 plt.legend(("MCS", "Tournament", "MPI-OMP"), loc="best")
-plt.savefig("MPI_OMP.png")
+plt.savefig("graphs/MPI_OMP.png")
 
 
 """
 Plotting OMP Sense and Dissemination Barriers
 """
 omp_diss_vals = []
-file = open("omp_dissemination_final.txt", "r")
+file = open("aggregate_results/omp_dissemination_final.txt", "r")
 for line in file:
     p = re.compile("([0-9]+): ([0-9]+.[0-9]+)")
     m = p.search(line)
@@ -70,7 +70,7 @@ for line in file:
 omp_diss_results = np.array(omp_diss_vals)
 
 omp_sense_vals = []
-file = open("omp_sense_final.txt", "r")
+file = open("aggregate_results/omp_sense_final.txt", "r")
 for line in file:
     p = re.compile("([0-9]+): ([0-9]+.[0-9]+)")
     m = p.search(line)
@@ -85,4 +85,4 @@ plt.plot(x, omp_sense_results, "s-", label="Sense Reversal")
 plt.xlabel("Number of Threads")
 plt.ylabel(r"Time ($\mu$s)")
 plt.legend(("Dissemination", "Sense Reversal"), loc="best")
-plt.savefig("Dissemination_Sense.png")
+plt.savefig("graphs/Dissemination_Sense.png")

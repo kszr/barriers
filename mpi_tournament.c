@@ -71,12 +71,12 @@ static int join_tournament_aux(processor_t *processor) {
             if(buf == CONCEDE_SIGNAL) {
                 processor->round++;
                 processor->has_sent = 0;
-                printf("Processor %d moves up to the next round legitimately\n", processor->id);
+                // printf("Processor %d moves up to the next round legitimately\n", processor->id);
             }
         } else if(processor->round >= 0) {
             // If this is not a full binary tree (note that it will always be complete), then some nodes will not have a designated sender.
             // Such nodes will advance to the next round by default.
-            printf("Processor %d moves up to the next round by default\n", processor->id);
+            // printf("Processor %d moves up to the next round by default\n", processor->id);
             processor->round++;
         }
     }
@@ -92,7 +92,7 @@ int wakeup(processor_t *processor, int *buf) {
         processor->round--;
         *buf = WAKEUP_SIGNAL;
         if(get_source(processor) < num_procs) {
-            printf("Processor %d sends wakeup signal to processor %d\n", processor->id, get_source(processor));
+            // printf("Processor %d sends wakeup signal to processor %d\n", processor->id, get_source(processor));
             MPI_Send(buf, 1, MPI_INT, get_source(processor), 1, MPI_COMM_WORLD);
         }
     }

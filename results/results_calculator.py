@@ -21,7 +21,7 @@ for path in tournament_files:
             except KeyError:
                 tournament_map[int(m.groups()[1])] = (float(m.groups()[0]),1)
 
-file = open("mpi_tournament_final.txt", "w")
+file = open("aggregate_results/mpi_tournament_final.txt", "w")
 file.write("MPI Tournament Results\n")
 file.write("(num processors: time in microseconds)\n")
 for key in tournament_map:
@@ -49,7 +49,7 @@ for path in mcs_files:
             except KeyError:
                 mcs_map[int(m.groups()[1])] = (float(m.groups()[0]),1)
 
-file = open("mpi_mcs_final.txt", "w")
+file = open("aggregate_results/mpi_mcs_final.txt", "w")
 file.write("MPI MCS Results\n")
 file.write("(num processors: time in microseconds)\n")
 for key in mcs_map:
@@ -86,7 +86,7 @@ for path in mpi_omp_files:
                     mpi_omp_map[int(m.groups()[1])][int(m.groups()[2])] = (float(m.groups()[0]),1)
                     # mpi_omp_map[int(m.groups()[1])][12] = (float(m.groups()[0]),1)
 
-file = open("mpi_omp_final.txt", "w")
+file = open("aggregate_results/mpi_omp_final.txt", "w")
 file.write("MPI OMP Results\n")
 file.write("(num processors: num threads: time in microseconds)\n")
 for key1 in mpi_omp_map:
@@ -115,7 +115,7 @@ for path in omp_diss_files:
             except KeyError:
                 omp_diss_map[int(m.groups()[1])] = (float(m.groups()[0]),1)
 
-file = open("omp_dissemination_final.txt", "w")
+file = open("aggregate_results/omp_dissemination_final.txt", "w")
 file.write("OMP Dissemination Results\n")
 file.write("(num threads: time in microseconds)\n")
 for key in omp_diss_map:
@@ -143,7 +143,7 @@ for path in omp_sense_files:
             except KeyError:
                 omp_sense_map[int(m.groups()[1])] = (float(m.groups()[0]),1)
 
-file = open("omp_sense_final.txt", "w")
+file = open("aggregate_results/omp_sense_final.txt", "w")
 file.write("OMP Sense Results\n")
 file.write("(num threads: time in microseconds)\n")
 for key in omp_sense_map:
