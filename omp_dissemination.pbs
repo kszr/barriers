@@ -1,5 +1,5 @@
 #PBS -q class
-#PBS -l nodes=1:sixcore
+#PBS -l nodes=1:fourcore
 #PBS -l walltime=00:10:00
 #PBS -N STDIN
 
