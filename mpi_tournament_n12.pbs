@@ -1,4 +1,4 @@
-#PBS -q class
+#PBS -q cs6210
 #PBS -l nodes=12:sixcore
 #PBS -l walltime=00:10:00
 #PBS -N STDIN
