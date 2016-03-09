@@ -59,3 +59,5 @@ do
 		echo ""
 	done
 done
+
+echo "=== Done! ==="
