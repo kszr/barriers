@@ -3,7 +3,7 @@
 ## to 'gcc', if necessary, and use the commented out definition of MPICC when
 ## running on the cluster.
 
-CC=gcc-5
+CC=gcc
 MPICC=mpicc
 
 ## Use the following path for MPICC on the jinx cluster.

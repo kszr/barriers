@@ -7,24 +7,26 @@ for i in {2..8}
 do
 	for j in 1
 	do
-		./omp_sense $i $j
+		./omp_sense $i $j 
 		echo ""
 	done
 done
 
-read -p "Press [Enter] key to run Dissemination Barrier..."
+
+read -p "Press [Enter] key to run Dissemination Barrier..." 
 
 echo "OMP Dissemination Barrier"
 for i in {2..8}
 do
 	for j in 1
 	do
-		./omp_dissemination $i $j
+		./omp_dissemination $i $j 
 		echo ""
 	done
 done
 
-read -p "Press [Enter] key to run Tournament Barrier..."
+
+read -p "Press [Enter] key to run Tournament Barrier..." 
 
 echo "MPI Tournament Barrier"
 for i in {2..12}
@@ -34,7 +36,14 @@ do
 		mpirun -np $i ./mpi_tournament -i $j
 		echo ""
 	done
-done
+done 
+
+# close stdin after dup'ing it to FD 6
+exec 6<&0
+
+# open /dev/tty as stdin
+exec 0</dev/tty
+
 
 read -p "Press [Enter] key to run MCS tree Barrier..."
 
@@ -48,14 +57,20 @@ do
 	done
 done
 
-read -p "Press [Enter] key to run MPI-OMP combined Barrier..."
+# close stdin after dup'ing it to FD 6
+exec 6<&0
+
+# open /dev/tty as stdin
+exec 0</dev/tty
+
+read -p "Press [Enter] key to run MPI-OMP combined Barrier..." 
 
 echo "MPI-OMP Combined Barrier"
 for i in {2..12}
 do
 	for j in {2..8}
 	do
-		mpirun -np $i ./mpi_omp_barrier -i $j
+		mpirun -np $i ./mpi_omp_barrier -t $j
 		echo ""
 	done
 done

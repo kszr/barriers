@@ -201,7 +201,9 @@ int main(int argc, char *argv[]) {
     int id;
     int ierr;
     double wtime;
-    int num_iters = 1000000;
+    int num_iters = 1;
+    num_threads = 1;
+    //int num_iters = 1000000;
 
     // Initiaize MPI
     ierr = MPI_Init(&argc, &argv);
@@ -219,18 +221,54 @@ int main(int argc, char *argv[]) {
     processor.has_sent = 0;
     processor.locksense = 0;
 
-    if(argc >=2) {
-        if(strcmp(argv[argc-2], "-i") == 0) {
-            num_threads = atoi(argv[argc-1]);
-        } else {
-            fprintf(stderr, "Usage: mpirun -np [num_procs] mpi_omp_barrier -i [num_threads]");
-            return 1;
+    if(argc >= 4) {
+        if(strcmp(argv[argc-4], "-t") == 0) {
+            num_threads = atoi(argv[argc-3]);
+            if(strcmp(argv[argc-2], "-i") == 0) {
+                num_iters = atoi(argv[argc-1]);
+            } else {
+                fprintf(stderr, "Usage: mpirun -np [num_procs] mpi_omp_barrier -t [num_threads] -i [num_iters]");
+                return 1;
+            }
+        } else if(strcmp(argv[argc-4], "-i") == 0) {
+            num_iters = atoi(argv[argc-3]);
+            if(strcmp(argv[argc-2], "-t") == 0) {
+                num_threads = atoi(argv[argc-1]);
+            } else {
+                fprintf(stderr, "Usage: mpirun -np [num_procs] mpi_omp_barrier -t [num_threads] -i [num_iters]");
+                return 1;
+            }
         }
-        if(num_threads < 0) {
-            fprintf(stderr, "Usage: mpirun -np [num_procs] mpi_omp_barrier -i [num_threads]");
-            return 1;
+    } else if(argc >= 2) {
+        if(strcmp(argv[argc-2], "-t") ==0) {
+            num_threads = atoi(argv[argc-1]);
+        } else if(strcmp(argv[argc-2], "-i") ==0) {
+            num_iters = atoi(argv[argc-1]);
+        } else {
+            fprintf(stderr, "Usage: mpirun -np [num_procs] mpi_omp_barrier -t [num_threads] -i [num_iters]");
+            return 1;   
         }
     }
+
+    if(num_threads < 0 || num_iters < 0) {
+        fprintf(stderr, "Usage: mpirun -np [num_procs] mpi_omp_barrier -t [num_threads] -i [num_iters]");
+        return 1;
+    }
+
+    // if(argc >=4) {
+    //     if(strcmp(argv[argc-2], "-t") == 0) {
+    //         num_threads = atoi(argv[argc-1]);
+    //     } else if(strcmp(argv[argc-2], "-i") == 0) {
+    //         num_iters = atoi(argv[argc-1]);
+    //     } else {
+    //         fprintf(stderr, "Usage: mpirun -np [num_procs] mpi_omp_barrier -t [num_threads] -i [num_iters]");
+    //         return 1;
+    //     }
+    //     if(num_threads < 0 || num_iters < 0) {
+    //         fprintf(stderr, "Usage: mpirun -np [num_procs] mpi_omp_barrier -t [num_threads] -i [num_iters]");
+    //         return 1;
+    //     }
+    // }
 
     wtime = MPI_Wtime();
 
