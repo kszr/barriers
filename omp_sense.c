@@ -42,8 +42,7 @@ int main(int argc, char* argv[]) {
 		long i;
 		T1 = omp_get_wtime();
 		for(i=0; i<num_barriers; i++) {
-			//fprintf(stderr, "%lu\n", i);
-			printf("");
+			fprintf(stderr, "Thread %d entered barrier %lu\n", thread_id, i);
 			central_barrier(&local_sense);
 
 		}
